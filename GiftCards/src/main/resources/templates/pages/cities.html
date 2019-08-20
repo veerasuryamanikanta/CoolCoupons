@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+
+
+<body>
+	<div th:fragment="body-city">
+		<div class="col-sm-5">
+			<div>&nbsp;</div>
+			<form class="form-horizontal" role="form" method="post">
+				<fieldset style="background: #f2f2f2;">
+					<h3 class="leg-te">Add City</h3>
+
+					<div>&nbsp;</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-3">Country</label>
+						<div class="col-sm-8">
+							<select class="form-control">
+								<option data-th-each="cntry : ${countriesList}"
+									th:text="${cntry.cc_country_name}" />
+							</select>
+						</div>
+					</div>
+
+					<div>&nbsp;</div>
+					
+					
+					<div class="form-group">
+						<label class="control-label col-sm-3">State</label>
+						<div class="col-sm-8">
+							<select class="form-control">
+								<option data-th-each="state : ${statesList}"
+									th:text="${state.cc_state_id}" />
+							</select>
+						</div>
+					</div>
+
+					<div>&nbsp;</div>
+					
+					
+
+					<div class="form-group">
+						<label class="control-label col-sm-3">City Name </label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="cc_city_name"
+								id="cc_city_name" required="required"
+								th:value="${cities.cc_city_name}" />
+						</div>
+					</div>
+
+					<div>&nbsp;</div>
+
+					<div>&nbsp;</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3"></label>
+						<div class="col-sm-8">
+							<button type="submit" class="btn btn-primary">Save</button>
+						</div>
+					</div>
+
+				</fieldset>
+				<div>&nbsp;</div>
+
+
+			</form>
+		</div>
+
+		<div class="col-sm-7">
+			<div>&nbsp;</div>
+
+			<h2>List Of Cities</h2>
+			<div>&nbsp;</div>
+
+			<table class="table">
+
+				<thead>
+					<tr>
+						<th>S.NO.</th>
+						<th>City Name</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr data-th-each="subcat : ${citiesList}">
+						<td th:text="${subcat.id}"></td>
+						<td th:text="${subcat.cc_city_name}"></td>
+						<td><i class="menu-icon fa fa-edit"></i></td>
+						<td><i class="menu-icon fa fa-trash-o"></i></td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

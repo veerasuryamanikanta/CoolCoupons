@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta charset="utf-8" />
+<title>Gift Cards</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link th:href="@{/css/material-design-iconic-font.min.css}"
+	rel="stylesheet" />
+<link th:href="@{css/loginstyle.css}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+	<div class="wrapper" style="background-image: url('img/bgone.jpg');">
+		<div th:if="${loginasAdmin}" class="inner">
+			<form th:action="@{/admin}" method="post">
+				<h3>Admin Login</h3>
+
+				<div th:if="${error}" class="form-wrapper">
+
+					<h4>Invalid Credentials</h4>
+
+				</div>
+				<div class="form-wrapper">
+					<label for="">User Name</label> <input type="text"
+						class="form-control" name="username" required="required" />
+				</div>
+
+
+				<div class="form-wrapper">
+					<label for="">Password</label> <input type="password"
+						class="form-control" name="password" required="required" />
+				</div>
+
+				<button>Login Now</button>
+
+				<!-- <div>
+					<a th:href="@{/registerAdmin}">Register As Admin</a> <a href="#"
+						style="float: right">Forgot Password</a>
+				</div> -->
+
+
+
+
+			</form>
+		</div>
+
+
+		<div th:if="${registrasAdmin}" class="inner">
+			<form th:action="@{/admin}" method="post">
+				<h3>Admin Registration</h3>
+
+
+				<h3 th:if="${nameemailexists}" style="color: red;">UserName and
+					Email ALready Exists</h3>
+
+
+				<h3 th:if="${usernameexists}" style="color: red;">UserName
+					Already Exists</h3>
+
+
+				<h3 th:if="${emailexists}" style="color: red;">Email Already
+					Exists</h3>
+
+
+				<div class="form-wrapper">
+					<label for="">Email</label> <input type="text" class="form-control"
+						name="email" required="required" />
+				</div>
+
+
+				<div class="form-wrapper">
+					<label for="">User Name</label> <input type="text"
+						class="form-control" name="username" required="required" />
+				</div>
+
+
+				<div class="form-wrapper">
+					<label for="">Password</label> <input type="password"
+						class="form-control" name="password" required="required" />
+				</div>
+
+				<button>Register</button>
+
+			</form>
+
+		</div>
+
+	</div>
+
+</body>
+</html>

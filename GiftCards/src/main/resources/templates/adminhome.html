@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head th:replace="common/adminheader :: common-adminheader" />
+
+<body>
+
+	<div th:replace="common/adminheader :: body-sidebar"></div>
+
+	<div id="right-panel" class="right-panel">
+
+		<div th:replace="common/adminheader :: body-navbar"></div>
+
+		<div th:if="${home}" class="content">
+			<div th:replace="common/adminheader :: body-bottom-footer"></div>
+		</div>
+
+
+
+		<div th:if="${country}" class="content">
+
+			<div th:replace="pages/countries :: body-country"></div>
+		</div>
+
+		<div th:if="${state}" class="content">
+
+			<div th:replace="pages/states :: body-state"></div>
+
+		</div>
+
+		<div th:if="${city}" class="content">
+
+			<div th:replace="pages/cities :: body-city"></div>
+
+		</div>
+
+
+		<div th:if="${location}" class="content">
+
+			<div th:replace="pages/locations :: body-locations"></div>
+
+		</div>
+
+		<div th:if="${categories}" class="content">
+
+			<div th:replace="pages/categories :: body-categories"></div>
+
+		</div>
+
+		<div th:if="${subcategories}" class="content">
+
+			<div th:replace="pages/subcategories :: body-subcategories"></div>
+
+		</div>
+
+		<div th:if="${store}" class="content">
+
+			<div th:replace="pages/stores :: body-stores"></div>
+
+		</div>
+
+		<div th:if="${banner}" class="content">
+
+			<div th:replace="pages/banners :: body-banners"></div>
+
+		</div>
+
+		<div th:if="${coupon}" class="content">
+
+			<div th:replace="pages/coupons :: body-coupons"></div>
+
+		</div>
+
+		<!-- <div th:replace="common/adminheader :: body-bottom-footer"></div> -->
+
+		<div th:replace="common/adminheader :: body-bottom-scripts"></div>
+
+	</div>
+
+</body>
+
+</html>
