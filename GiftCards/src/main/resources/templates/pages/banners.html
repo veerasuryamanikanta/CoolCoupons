@@ -31,7 +31,7 @@
 						<div class="col-sm-8">
 							<select class="form-control">
 								<option data-th-each="cat : ${statesList}"
-									th:text="${cat.cc_state_id}" />
+									th:text="${cat.cc_state_name}" />
 							</select>
 						</div>
 					</div>
@@ -57,7 +57,7 @@
 						<div class="col-sm-8">
 							<select class="form-control">
 								<option data-th-each="cat : ${locationsList}"
-									th:text="${cat.locationname}" />
+									th:text="${cat.cc_loc_name}" />
 							</select>
 						</div>
 					</div>
@@ -69,7 +69,7 @@
 						<div class="col-sm-8">
 							<select class="form-control">
 								<option data-th-each="cat : ${categoriesList}"
-									th:text="${cat.categoriename}" />
+									th:text="${cat.cc_catg_name}" />
 							</select>
 						</div>
 					</div>
@@ -82,7 +82,7 @@
 						<div class="col-sm-8">
 							<select class="form-control">
 								<option data-th-each="cat : ${subcategoriesList}"
-									th:text="${cat.subcategoryname}" />
+									th:text="${cat.cc_subcat_name}" />
 							</select>
 						</div>
 					</div>
@@ -147,7 +147,7 @@
 
 				<tbody>
 					<tr data-th-each="subcat : ${bannersList}">
-						<td th:text="${subcat.id}"></td>
+						<td th:text="${subcat.cc_banner_id}"></td>
 						<td th:text="${subcat.cc_banner_name}"></td>
 						<td><i class="menu-icon fa fa-edit"></i></td>
 						<td><i class="menu-icon fa fa-trash-o"></i></td>

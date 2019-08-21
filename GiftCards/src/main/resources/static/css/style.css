@@ -1270,7 +1270,7 @@ ul.wmuSliderPagination {
 }
 
 .searchoption{
-	background:#5e0b0a;
+	background:#88211a;
 	padding:3em 0;
 }
 .w3agile_newsletter_left h3{
@@ -4255,7 +4255,9 @@ td.invert-image a img {
 	.agileinfo_banner_bottom1_grid_right h4 {
 		width: 30%;
 	}
-	.special-deals h2:before, .new-products h3:before, .top-brands h3:before, .w3l_related_products h3:before, .team h3:before, .mail h3:before, h3.agileits-title:before{
+	.special-deals h2:before, .new-products h3:before, .top-brands h3:before,
+		.w3l_related_products h3:before, .team h3:before, .mail h3:before, h3.agileits-title:before
+		{
 		left: 7%;
 		width: 20%;
 	}
@@ -5051,3 +5053,47 @@ td.invert-image a img {
 	padding: 5px 10px;
 	
 }
+
+.search-sec{
+    padding: 2rem;
+}
+
+.search-slt{
+    display: block;
+    width: 100%;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    height: calc(3rem + 2px) !important;
+}
+
+.wrn-btn{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+}
+
+@media (min-width: 992px){
+    .search-sec{
+        position: relative;
+        top: -114px;
+        background: rgba(26, 70, 104, 0.51);
+    }
+}
+
+@media (max-width: 992px){
+    .search-sec{
+        background: #1A4668;
+    }
+}
+
+
+
+
+

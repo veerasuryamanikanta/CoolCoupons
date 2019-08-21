@@ -14,9 +14,9 @@
 					<div class="form-group">
 						<label class="control-label col-sm-3">Name </label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="categoriename"
-								id="categoriename" required="required"
-								th:value="${categoriesS.categoriename}" />
+							<input type="text" class="form-control" name="cc_catg_name"
+								id="cc_catg_name" required="required"
+								th:value="${categoriesS.cc_catg_name}" />
 						</div>
 					</div>
 
@@ -54,8 +54,8 @@
 
 				<tbody>
 					<tr data-th-each="cat : ${categoriesList}">
-						<td th:text="${cat.id}"></td>
-						<td th:text="${cat.categoriename}"></td>
+						<td th:text="${cat.cc_catg_id}"></td>
+						<td th:text="${cat.cc_catg_name}"></td>
 						<td><i class="menu-icon fa fa-edit"></i></td>
 						<td><i class="menu-icon fa fa-trash-o"></i></td>
 					</tr>

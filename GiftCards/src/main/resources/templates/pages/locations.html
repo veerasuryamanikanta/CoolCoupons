@@ -31,7 +31,7 @@
 						<div class="col-sm-8">
 							<select class="form-control">
 								<option data-th-each="state : ${statesList}"
-									th:text="${state.cc_state_id}" />
+									th:text="${state.cc_state_name}" />
 							</select>
 						</div>
 					</div>
@@ -55,9 +55,9 @@
 					<div class="form-group">
 						<label class="control-label col-sm-3">Location Name </label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="locationname"
-								id="locationname" required="required"
-								th:value="${locations.locationname}" />
+							<input type="text" class="form-control" name="cc_loc_name"
+								id="cc_loc_name" required="required"
+								th:value="${locations.cc_loc_name}" />
 						</div>
 					</div>
 
@@ -97,8 +97,8 @@
 
 				<tbody>
 					<tr data-th-each="loc : ${locationslist}">
-						<td th:text="${loc.id}"></td>
-						<td th:text="${loc.locationname}"></td>
+						<td th:text="${loc.cc_loc_id}"></td>
+						<td th:text="${loc.cc_loc_name}"></td>
 						<td><i class="menu-icon fa fa-edit"></i></td>
 						<td><i class="menu-icon fa fa-trash-o"></i></td>
 					</tr>

@@ -33,9 +33,9 @@
 					<div class="form-group">
 						<label class="control-label col-sm-3">State Name </label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="cc_state_id"
-								id="cc_state_id" required="required"
-								th:value="${states.cc_state_id}" />
+							<input type="text" class="form-control" name="cc_state_name"
+								id="cc_state_name" required="required"
+								th:value="${states.cc_state_name}" />
 						</div>
 					</div>
 
@@ -75,8 +75,8 @@
 
 				<tbody>
 					<tr data-th-each="state : ${stateslist}">
-						<td th:text="${state.id}"></td>
-						<td th:text="${state.cc_state_id}"></td>
+						<td th:text="${state.state_id}"></td>
+						<td th:text="${state.cc_state_name}"></td>
 						<td><i class="menu-icon fa fa-edit"></i></td>
 						<td><i class="menu-icon fa fa-trash-o"></i></td>
 					</tr>

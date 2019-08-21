@@ -37,18 +37,12 @@ public class StateController {
 
 	@RequestMapping(value = "/addState", method = RequestMethod.POST)
 	public String saveBrand(Model model, @ModelAttribute("states") States states) {
-
+		String substr = states.getCc_state_name();
+		String state_code = substr.substring(0, 2).toUpperCase();
+		states.setCc_state_code(state_code);
+		states.setCc_state_createdby("777");
+		states.setCc_countries(null);
 		statesService.save(states);
-		/*
-		 * MultipartFile bookImage = brand.getBrandimage(); try { byte[] bytes =
-		 * bookImage.getBytes(); String name = brand.getId() + "_" +
-		 * bookImage.getOriginalFilename(); BufferedOutputStream stream = new
-		 * BufferedOutputStream( new FileOutputStream(new
-		 * File("src/main/resources/static/image/brands/" + name)));
-		 * stream.write(bytes); stream.close(); model.addAttribute("brand", "brand"); }
-		 * catch (IOException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
 		return "redirect:stateList";
 	}
 
