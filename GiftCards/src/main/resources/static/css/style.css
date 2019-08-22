@@ -3690,7 +3690,7 @@ td.invert-image a img {
 		border-color: #fff;
 	}
 	.navbar-toggle {
-		float: none;
+		float: left;
 		margin-right: 0;
 	}
 	.navbar-default .navbar-toggle .icon-bar {
@@ -4262,7 +4262,7 @@ td.invert-image a img {
 		width: 20%;
 	}
 	.special-deals h2:after, .new-products h3:after, .top-brands h3:after, .w3l_related_products h3:after, .team h3:after, .mail h3:after, h3.agileits-title:after{
-		right: 36%;
+		right: 0%;
 		width: 20%;
 	}
 	.w3agile_special_deals_grids,.agileinfo_new_products_grids {
@@ -5093,7 +5093,7 @@ td.invert-image a img {
     }
 }
 
-
+.des-mod{ width:300px;}
 
 
 

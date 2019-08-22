@@ -268,6 +268,32 @@
 		width: 225px !important;
 		height: 300px !important;
 	}
+	
+	.mob-logo{
+		width:190px!important;
+		margin-top:10px;
+	}
+	.search-slt{
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    padding:5px!important;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    height: calc(3rem + 2px) !important;
+}
+
+.mob-link{
+	line-height: 50px;
+	color:#fff;
+}
+
+.xs-nopad{
+	padding:0px!important;
+}
+
 }
 @media (max-width:320px){
 	.hs-wrapper3 {

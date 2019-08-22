@@ -92,7 +92,7 @@ public class HomeController {
 	public String checkAdmin(@ModelAttribute("username") String username, @ModelAttribute("password") String password,
 			Model model) {
 
-		if (username.equalsIgnoreCase("admin") || password.equalsIgnoreCase("admin")) {
+		if (username.equalsIgnoreCase("9133291177") || password.equalsIgnoreCase("9133291177")) {
 			return "adminhome";
 		} else {
 			model.addAttribute("loginasAdmin", "loginasAdmin");
