@@ -53,7 +53,7 @@
 
 
 	<!-- header -->
-	<div class="header" id="home1">
+	<!-- <div class="header" id="home1">
 		<div class="container">
 			<div class="pull-left col-sm-6">
 				<div class="mob-logo des-mod">
@@ -61,10 +61,10 @@
 					alt="Logo" />
 
 
-				<!-- <h1>
+				<h1>
 					<a href="#">Cool coupons<span>Your stores. Your
 							place.</span></a>
-				</h1> -->
+				</h1>
 				</div>
 			</div>
 
@@ -81,13 +81,13 @@
 			</div>
 
 		</div>
-	</div>
+	</div> -->
 
 	<!-- header close -->
 
 
 	<!-- nav bar start -->
-	<div class="navigation">
+	<div class="navigation" id="home1">
 		<div class="container">
 			<nav class="navbar navbar-default">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -101,9 +101,9 @@
 							class="icon-bar"></span>
 					</button>
 				</div>
-				
+
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-					
+
 					<ul class="nav navbar-nav">
 						<li><a href="#" class="act">Home</a></li>
 						<li><a href="#topcoupons" class="scroll">Top Coupons</a></li>
@@ -161,12 +161,83 @@
 	</div>
 	<!-- nav bar close -->
 
-	<div>&nbsp;</div>
+	<!-- <div>&nbsp;</div> -->
 	<!-- banner -->
-	<div class="container">
+	<div class="">
 		<div>
 			<section>
-				<div>
+
+				<div class="s01">
+					<form>
+						<div class="inner-form">
+							<div class="input-field first-wrap">
+								<select class="form-control search-slt"
+									id="exampleFormControlSelect1">
+									<option>Select Location</option>
+									<option data-th-each="cat : ${citiesList}"
+										th:text="${cat.cc_city_name}" />
+								</select>
+							</div>
+
+							<div class="input-field first-wrap">
+								<select class="form-control search-slt"
+									id="exampleFormControlSelect1">
+									<option>Select Categry</option>
+									<option data-th-each="cat : ${categoriesList}"
+										th:text="${cat.cc_catg_name}" />
+								</select>
+							</div>
+
+							<div class="input-field first-wrap">
+								<select class="form-control search-slt"
+									id="exampleFormControlSelect1">
+									<option>Select Sub Categry</option>
+									<option data-th-each="cat : ${subcategoriesList}"
+										th:text="${cat.cc_subcat_name}" />
+								</select>
+							</div>
+
+							<div class="input-field first-wrap">
+								<span><a href="#topcoupons"
+									class="btn btn-danger wrn-btn scroll">Search</a></span>
+								<!-- 
+								<div>&nbsp;</div>
+								<a href="#topcoupons" class="btn btn-danger wrn-btn scroll">Search</a> -->
+
+								<!-- <button type="button" class="btn btn-danger wrn-btn"
+									onclick="#topcoupons"><span><a href="#topcoupons" class="btn btn-danger wrn-btn scroll">Search</a></span></button> -->
+
+							</div>
+
+
+
+
+
+							<!-- <div class="input-field third-wrap">
+								<button class="btn-search" type="button">Search</button>
+							</div> -->
+
+
+
+							<!-- <div class="input-field second-wrap">
+								<select class="form-control search-slt"
+									id="exampleFormControlSelect1">
+									<option>Select Sub Categry</option>
+									<option data-th-each="cat : ${subcategoriesList}"
+										th:text="${cat.cc_subcat_name}" />
+								</select>
+							</div>
+
+
+							<div class="input-field third-wrap">
+								<button class="btn-search" type="button">Search</button>
+							</div> -->
+						</div>
+					</form>
+				</div>
+
+
+				<!-- <div>
 					<form action="#" method="post" novalidate="novalidate">
 						<div class="row">
 							<div class="">
@@ -210,21 +281,21 @@
 							</div>
 						</div>
 					</form>
-				</div>
+				</div> -->
 			</section>
 
 			<div>&nbsp;</div>
 		</div>
 
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
+		<!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
+			Indicators
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="1"></li>
 				<li data-target="#myCarousel" data-slide-to="2"></li>
 			</ol>
 
-			<!-- Wrapper for slides -->
+			Wrapper for slides
 			<div class="carousel-inner">
 				<div class="item active">
 					<img src="images/sliderone.jpg" alt="New York" />
@@ -241,7 +312,7 @@
 
 			</div>
 
-			<!-- Left and right controls -->
+			Left and right controls
 			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
 				<span class="glyphicon glyphicon-chevron-left"></span> <span
 				class="sr-only">Previous</span>
@@ -250,7 +321,7 @@
 				class="glyphicon glyphicon-chevron-right"></span> <span
 				class="sr-only">Next</span>
 			</a>
-		</div>
+		</div> -->
 	</div>
 	<!-- //banner -->
 
@@ -424,7 +495,7 @@
 		<div class="container">
 			<div class="w3_footer_grids">
 				<div class="col-md-3 w3_footer_grid">
-					<h3>Contact</h3>
+					<h3>Contact us</h3>
 					<ul class="address">
 						<li><i class="glyphicon glyphicon-map-marker"
 							aria-hidden="true"></i>1234 , 4th block, Hyderabad <span>Telangana.</span></li>
@@ -434,7 +505,7 @@
 							aria-hidden="true"></i>+1234 567 567</li>
 					</ul>
 				</div>
-				<div class="col-md-3 w3_footer_grid">
+				<!-- <div class="col-md-3 w3_footer_grid">
 					<h3>Information</h3>
 					<ul class="info">
 						<li><a href="#">About Us</a></li>
@@ -442,8 +513,8 @@
 						<li><a href="#">FAQ's</a></li>
 						<li><a href="#l">Special Products</a></li>
 					</ul>
-				</div>
-				<div class="col-md-3 w3_footer_grid">
+				</div> -->
+				<!-- <div class="col-md-3 w3_footer_grid">
 					<h3>Category</h3>
 					<ul class="info">
 						<li><a href="#">Category 01</a></li>
@@ -451,7 +522,24 @@
 						<li><a href="#">Category 03</a></li>
 
 					</ul>
-				</div>
+				</div> -->
+				<!-- <div class="col-md-3 w3_footer_grid">
+					<h3>Profile</h3>
+					<ul class="info">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Today's Deals</a></li>
+					</ul>
+					<h4>Follow Us</h4>
+					<div class="agileits_social_button">
+						<ul>
+							<li><a href="#" class="facebook"> </a></li>
+							<li><a href="#" class="twitter"> </a></li>
+							<li><a href="#" class="google"> </a></li>
+							<li><a href="#" class="pinterest"> </a></li>
+						</ul>
+					</div>
+				</div> -->
+				
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Profile</h3>
 					<ul class="info">
