@@ -88,7 +88,7 @@ public class CouponsController {
 		try {
 			byte[] bytes = image_upload.getBytes();
 			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(
-					new File("src/main/resources/static/image/uploads/" + image_upload.getOriginalFilename())));
+					new File("src/main/resources/static/image/uploads/coupons/" + image_upload.getOriginalFilename())));
 			stream.write(bytes);
 			stream.close();
 		} catch (Exception e) {

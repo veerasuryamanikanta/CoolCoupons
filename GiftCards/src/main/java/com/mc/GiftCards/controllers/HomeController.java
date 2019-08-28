@@ -72,7 +72,7 @@ public class HomeController {
 		model.addAttribute("locationsList", locationsList);
 		model.addAttribute("categoriesList", categoriesList);
 		model.addAttribute("subcategoriesList", subcategoriesList);
-		if (couponsList.size() != 0) {
+		if (categoriesList.size() != 0) {
 			model.addAttribute("couponscount", false);
 		} else {
 			model.addAttribute("couponscount", true);
@@ -102,6 +102,33 @@ public class HomeController {
 
 	}
 
-	
+	@RequestMapping(value = "/products", method = RequestMethod.GET)
+	public String getProducts(Model model) {
+		Coupons coupons = new Coupons();
+		List<Categories> categoriesList = categoryService.findAll();
+		List<Stores> storesList = storeservice.findAll();
+		List<Countries> countriesList = counryService.findAll();
+		List<States> statesList = stateService.findAll();
+		List<Cities> citiesList = cityService.findAll();
+		List<Locations> locationsList = locationServices.findAll();
+		List<SubCategories> subcategoriesList = subcategoryservice.findAll();
+		List<Coupons> couponsList = couponsService.findAll();
+		model.addAttribute("coupons", coupons);
+		model.addAttribute("storesList", storesList);
+		model.addAttribute("countriesList", countriesList);
+		model.addAttribute("statesList", statesList);
+		model.addAttribute("citiesList", citiesList);
+		model.addAttribute("locationsList", locationsList);
+		model.addAttribute("categoriesList", categoriesList);
+		model.addAttribute("subcategoriesList", subcategoriesList);
+		if (subcategoriesList.size() != 0) {
+			model.addAttribute("couponscount", false);
+		} else {
+			model.addAttribute("couponscount", true);
+		}
+		model.addAttribute("couponsList", couponsList);
+		model.addAttribute("coupon", "coupon");
+		return "innerpage";
+	}
 
 }

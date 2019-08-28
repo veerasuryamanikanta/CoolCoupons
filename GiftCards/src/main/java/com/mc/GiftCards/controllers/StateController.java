@@ -41,7 +41,7 @@ public class StateController {
 		String state_code = substr.substring(0, 2).toUpperCase();
 		states.setCc_state_code(state_code);
 		states.setCc_state_createdby("777");
-		states.setCc_countries(null);
+		//states.setCc_countries(null);
 		statesService.save(states);
 		return "redirect:stateList";
 	}

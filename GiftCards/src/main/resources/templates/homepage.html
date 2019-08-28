@@ -53,7 +53,7 @@
 
 
 	<!-- header -->
-	<div class="header">
+	<!-- <div class="header">
 		<div class="">
 			<div class="pull-left col-sm-6">
 				<div class="mob-logo des-mod">
@@ -72,17 +72,17 @@
 							th:text="${cat.cc_city_name}" />
 					</select>
 
-					<!-- <select class="form-control search-slt">
+					<select class="form-control search-slt">
 						<option data-th-each="cat : ${statesList}"
 							th:text="${cat.cc_state_name}" />
-					</select> -->
+					</select>
 
 
 				</div>
 			</div>
 			<div>&nbsp;</div>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- header close -->
 
@@ -372,21 +372,27 @@
 	<!-- //banner -->
 
 
-	<!-- top-coupons -->
+	<!-- Online-coupons -->
 	<div class="top-brands" id="topcoupons">
 		<div class="container">
-			<h3>Online Advertising</h3>
+			<h3>Online Ads</h3>
 			<div class="brands-cont">
 
 				<div th:if="${couponscount}">
-					<h1 align="center">Coupons Not Available Now</h1>
+					<h1 align="center">Ads Not Available Now</h1>
 				</div>
 
 				<div class="col-md-3 text-center"
-					data-th-each="cat : ${couponsList}">
-					<div class="brands">
-						<img th:src="@{'image/uploads/' + ${cat.cc_coupon_imagepath}}"
+					data-th-each="cat : ${categoriesList}">
+					<div class="brands" onclick="@{/admin}">
+						<img
+							th:src="@{'image/uploads/categories/' + ${cat.cc_cat_imagepath}}"
 							width="200px" alt="01" />
+						<div class="coup-tit">
+							<a th:href="@{/products}" th:text="${cat.cc_catg_name}"></a>
+						</div>
+
+
 						<!-- <div>&nbsp;</div>
 						<div class="coup-tit">Surya Restaurent</div>
 						<div class="coup-tit" th:text="${cat.coupon}"></div>
@@ -398,18 +404,60 @@
 
 		</div>
 	</div>
-	<!-- //top-brands -->
+	<!-- //online-brands -->
+	
+	
+	
+	
+	
+	
+	<!-- book-coupons -->
+	<!-- <div class="top-brands" id="topcoupons">
+		<div class="container">
+			<h3>Book Ads</h3>
+			<div class="brands-cont">
+
+				<div th:if="${couponscount}">
+					<h1 align="center">Coupons Not Available Now</h1>
+				</div>
+
+				<div class="col-md-3 text-center"
+					data-th-each="cat : ${categoriesList}">
+					<div class="brands" onclick="@{/admin}">
+						<img
+							th:src="@{'image/uploads/categories/' + ${cat.cc_cat_imagepath}}"
+							width="200px" alt="01" />
+						<div class="coup-tit">
+							<a th:href="@{/products}" th:text="${cat.cc_catg_name}"></a>
+						</div>
+
+
+						<div>&nbsp;</div>
+						<div class="coup-tit">Surya Restaurent</div>
+						<div class="coup-tit" th:text="${cat.coupon}"></div>
+						<button class="btn  btn-block btn-view">View</button>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div> -->
+	<!-- //book-brands -->
+	
+	
+	
 
 
 	<!-- special-deals -->
-	<div class="special-deals" id="popularstores">
+	<!-- <div class="special-deals" id="popularstores">
 		<div class="container">
 			<h2>Coupon Book Advertising</h2>
 			<div class="w3agile_special_deals_grids">
 				<div class="col-md-6 w3agile_special_deals_grid_left">
 					<div class="w3agile_special_deals_grid_left_grid">
 						<img src="images/21.jpg" alt=" " class="img-responsive" />
-						<!-- <div class="w3agile_special_deals_grid_left_grid_pos1">
+						<div class="w3agile_special_deals_grid_left_grid_pos1">
 							<h5>
 								10%<span>Off/- SBI CARD</span>
 							</h5>
@@ -418,12 +466,12 @@
 							<h4>
 								Surya <span>Summer Sale</span>
 							</h4>
-						</div> -->
+						</div>
 					</div>
 
 					<div class="w3agile_special_deals_grid_left_grid">
 						<img src="images/022.jpg" alt=" " class="img-responsive" />
-						<!-- <div class="w3agile_special_deals_grid_left_grid_pos1">
+						<div class="w3agile_special_deals_grid_left_grid_pos1">
 							<h5>
 								20%<span>Off/-</span>
 							</h5>
@@ -432,14 +480,14 @@
 							<h4>
 								Surya <span>Best Products</span>
 							</h4>
-						</div> -->
+						</div>
 					</div>
 				</div>
 
 				<div class="col-md-6 w3agile_special_deals_grid_left">
 					<div class="w3agile_special_deals_grid_left_grid">
 						<img src="images/21.jpg" alt=" " class="img-responsive" />
-						<!-- <div class="w3agile_special_deals_grid_left_grid_pos1">
+						<div class="w3agile_special_deals_grid_left_grid_pos1">
 							<h5>
 								10%<span>Off/- SBI CARD</span>
 							</h5>
@@ -448,12 +496,12 @@
 							<h4>
 								Surya <span>Summer Sale</span>
 							</h4>
-						</div> -->
+						</div>
 					</div>
 
 					<div class="w3agile_special_deals_grid_left_grid">
 						<img src="images/022.jpg" alt=" " class="img-responsive" />
-						<!-- <div class="w3agile_special_deals_grid_left_grid_pos1">
+						<div class="w3agile_special_deals_grid_left_grid_pos1">
 							<h5>
 								20%<span>Off/-</span>
 							</h5>
@@ -462,11 +510,11 @@
 							<h4>
 								Surya <span>Best Products</span>
 							</h4>
-						</div> -->
+						</div>
 					</div>
 				</div>
 
-				<!-- <div class="col-md-5 w3agile_special_deals_grid_right">
+				<div class="col-md-5 w3agile_special_deals_grid_right">
 					<img src="images/20.jpg" alt=" " class="img-responsive" />
 					<div class="w3agile_special_deals_grid_right_pos">
 						<h4>
@@ -476,11 +524,11 @@
 							save up <span>to</span> 30%
 						</h5>
 					</div>
-				</div> -->
+				</div>
 				<div class="clearfix"></div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- //special-deals -->
 	<!-- about us -->
 	<div class="new-products" id="aboutus">
