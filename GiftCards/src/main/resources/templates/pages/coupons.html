@@ -7,7 +7,7 @@
 	<div th:fragment="body-coupons">
 		<div class="col-sm-5">
 			<div>&nbsp;</div>
-			<form class="form-horizontal" role="form" method="post">
+			<form class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
 				<fieldset style="background: #f2f2f2;">
 					<h3 class="leg-te">Add Coupon</h3>
 
@@ -102,14 +102,31 @@
 					<div class="form-group">
 						<label class="control-label col-sm-3">Name </label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="coupon"
-								id="coupon" required="required"
-								th:value="${coupons.coupon}" />
+							<input type="text" class="form-control" name="coupon" id="coupon"
+								required="required" th:value="${coupons.coupon}" />
 						</div>
 					</div>
 
 					<div>&nbsp;</div>
-
+					
+					<div class="form-group">
+						<label class="control-label col-sm-3">Name </label>
+						<div class="col-sm-8">
+							<input type="file" class="form-control" name="cc_coupon_image" id="cc_coupon_image"
+								required="required" th:value="${coupons.cc_coupon_image}" />
+						</div>
+					</div>
+					
+					
+					<!-- <div class="form-group">
+						<div class="col-md-2">
+							<label for="bookImage">Upload book image</label>
+						</div>
+						<div class="col-md-8">
+							<input id="bookImage" type="file" name="bookImage"
+								th:value="${book.bookImage}" />
+						</div>
+					</div> -->
 					<div>&nbsp;</div>
 					<div class="form-group">
 						<label class="control-label col-sm-3"></label>

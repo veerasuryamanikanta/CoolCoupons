@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "cc_coupons")
@@ -26,11 +29,22 @@ public class Coupons {
 	@Column(name = "cc_coupon_name", nullable = false)
 	private String coupon;
 
-	@Column(name = "cc_coupon_imgpath")
-	private String cc_coupon_imgpath;
 
 	@Column(name = "cc_coupon_type")
 	private String cc_coupon_type;
+	
+	@Column(name = "cc_coupon_imagepath")
+	private String cc_coupon_imagepath;
+
+	
+
+	public String getCc_coupon_imagepath() {
+		return cc_coupon_imagepath;
+	}
+
+	public void setCc_coupon_imagepath(String cc_coupon_imagepath) {
+		this.cc_coupon_imagepath = cc_coupon_imagepath;
+	}
 
 	@Column(name = "cc_createdby")
 	private String cc_createdby;
@@ -51,12 +65,15 @@ public class Coupons {
 		this.coupon = coupon;
 	}
 
-	public String getCc_coupon_imgpath() {
-		return cc_coupon_imgpath;
+	@Transient
+	private MultipartFile cc_coupon_image;
+
+	public MultipartFile getCc_coupon_image() {
+		return cc_coupon_image;
 	}
 
-	public void setCc_coupon_imgpath(String cc_coupon_imgpath) {
-		this.cc_coupon_imgpath = cc_coupon_imgpath;
+	public void setCc_coupon_image(MultipartFile cc_coupon_image) {
+		this.cc_coupon_image = cc_coupon_image;
 	}
 
 	public String getCc_coupon_type() {

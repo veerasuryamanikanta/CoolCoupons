@@ -385,7 +385,8 @@
 				<div class="col-md-3 text-center"
 					data-th-each="cat : ${couponsList}">
 					<div class="brands">
-						<img src="img/cpns.jpg" width="200px" alt="01" />
+						<img th:src="@{'image/uploads/' + ${cat.cc_coupon_imagepath}}"
+							width="200px" alt="01" />
 						<!-- <div>&nbsp;</div>
 						<div class="coup-tit">Surya Restaurent</div>
 						<div class="coup-tit" th:text="${cat.coupon}"></div>
@@ -581,7 +582,7 @@
 							aria-hidden="true"></i>+1234 567 567</li>
 					</ul>
 				</div>
-				 <div class="col-md-3 w3_footer_grid">
+				<div class="col-md-3 w3_footer_grid">
 					<h3>Faq</h3>
 					<ul class="info">
 						<li><a href="#">Online Advertising</a></li>
@@ -589,8 +590,8 @@
 						<li><a href="#">FAQ's</a></li>
 						<li><a href="#l">Special Offers</a></li>
 					</ul>
-				</div> 
-				 <div class="col-md-3 w3_footer_grid">
+				</div>
+				<div class="col-md-3 w3_footer_grid">
 					<h3>Feed back</h3>
 					<ul class="info">
 						<li><a href="#">Printing</a></li>
@@ -598,12 +599,12 @@
 						<li><a href="#">Coupons</a></li>
 
 					</ul>
-				</div> 
-				
+				</div>
+
 
 				<div class="col-md-3 w3_footer_grid">
-					
-					
+
+
 					<h4>Follow Us</h4>
 					<div class="agileits_social_button">
 						<ul>

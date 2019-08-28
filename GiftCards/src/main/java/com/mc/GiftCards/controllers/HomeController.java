@@ -88,14 +88,6 @@ public class HomeController {
 		return "admin";
 	}
 
-	@RequestMapping(value = "/search}", method = RequestMethod.GET)
-	public String save(@ModelAttribute("citiesList") Cities searchOptions, Model model) {
-		// select menu can then be accessed in the searchOptions form object
-		String option = searchOptions.getCc_city_name();
-		System.out.println("-------------------"+option);
-		return "admin";
-	}
-
 	@RequestMapping(value = "/admin", method = RequestMethod.POST)
 	public String checkAdmin(@ModelAttribute("username") String username, @ModelAttribute("password") String password,
 			Model model) {
@@ -109,5 +101,7 @@ public class HomeController {
 		}
 
 	}
+
+	
 
 }
