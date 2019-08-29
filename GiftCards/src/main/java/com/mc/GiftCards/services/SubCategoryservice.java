@@ -2,16 +2,18 @@ package com.mc.GiftCards.services;
 
 import java.util.List;
 
-import com.mc.GiftCards.dto.SubCategories;
+import com.mc.GiftCards.dto.SubCategory;
 
 public interface SubCategoryservice {
 
 	
-	SubCategories save(SubCategories subcategories);
+	SubCategory save(SubCategory subcategories);
 
-	List<SubCategories> findAll();
+	List<SubCategory> findAll();
 	
-	SubCategories findOne(Long id);
+	List<SubCategory> findByCategory(Long categoryId);
+	
+	SubCategory findOne(Long id);
 	
 	void removeOne(Long id);
 	

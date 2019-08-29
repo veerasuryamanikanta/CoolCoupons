@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.mc.GiftCards.dto.Categories;
+import com.mc.GiftCards.dto.Category;
 import com.mc.GiftCards.dto.Cities;
 import com.mc.GiftCards.dto.Countries;
 import com.mc.GiftCards.dto.Coupons;
 import com.mc.GiftCards.dto.Locations;
 import com.mc.GiftCards.dto.States;
 import com.mc.GiftCards.dto.Stores;
-import com.mc.GiftCards.dto.SubCategories;
+import com.mc.GiftCards.dto.SubCategory;
 import com.mc.GiftCards.services.CategoryServive;
 import com.mc.GiftCards.services.CitiesService;
 import com.mc.GiftCards.services.CountriesServive;
@@ -61,13 +61,13 @@ public class CouponsController {
 	@RequestMapping(value = "/addcoupon", method = RequestMethod.GET)
 	public String addSubCategories(Model model) {
 		Coupons coupons = new Coupons();
-		List<Categories> categoriesList = categoryService.findAll();
+		List<Category> categoriesList = categoryService.findAll();
 		List<Stores> storesList = storeservice.findAll();
 		List<Countries> countriesList = counryService.findAll();
 		List<States> statesList = stateService.findAll();
 		List<Cities> citiesList = cityService.findAll();
 		List<Locations> locationsList = locationServices.findAll();
-		List<SubCategories> subcategoriesList = subcategoryservice.findAll();
+		List<SubCategory> subcategoriesList = subcategoryservice.findAll();
 		List<Coupons> couponsList = couponsService.findAll();
 		model.addAttribute("coupons", coupons);
 		model.addAttribute("storesList", storesList);
@@ -97,13 +97,13 @@ public class CouponsController {
 		cpns.setCc_coupon_imagepath(image_upload.getOriginalFilename());
 		couponsService.save(cpns);
 		Coupons coupons = new Coupons();
-		List<Categories> categoriesList = categoryService.findAll();
+		List<Category> categoriesList = categoryService.findAll();
 		List<Stores> storesList = storeservice.findAll();
 		List<Countries> countriesList = counryService.findAll();
 		List<States> statesList = stateService.findAll();
 		List<Cities> citiesList = cityService.findAll();
 		List<Locations> locationsList = locationServices.findAll();
-		List<SubCategories> subcategoriesList = subcategoryservice.findAll();
+		List<SubCategory> subcategoriesList = subcategoryservice.findAll();
 		List<Coupons> couponsList = couponsService.findAll();
 		model.addAttribute("coupons", coupons);
 		model.addAttribute("storesList", storesList);

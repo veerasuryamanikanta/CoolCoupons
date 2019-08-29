@@ -26,6 +26,26 @@ public class States {
 	@Column(name = "state_id", nullable = false, updatable = false)
 	private Long state_id;
 
+	@Column(name = "cc_state_code", nullable = false)
+	private String cc_state_code;
+
+	@Column(name = "cc_state_name", nullable = false)
+	private String cc_state_name;
+
+	@Column(name = "cc_state_createdby")
+	private String cc_state_createdby;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "created_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	Date created_date;
+
+	@Column(name = "cc_state_isActive", columnDefinition = "boolean default false")
+	private boolean cc_state_isActive;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "country_id")
+	private Countries cc_countries;
+	
 	public Long getState_id() {
 		return state_id;
 	}
@@ -73,26 +93,6 @@ public class States {
 	public void setCc_state_isActive(boolean cc_state_isActive) {
 		this.cc_state_isActive = cc_state_isActive;
 	}
-
-	@Column(name = "cc_state_code", nullable = false)
-	private String cc_state_code;
-
-	@Column(name = "cc_state_name", nullable = false)
-	private String cc_state_name;
-
-	@Column(name = "cc_state_createdby")
-	private String cc_state_createdby;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-	Date created_date;
-
-	@Column(name = "cc_state_isActive", columnDefinition = "boolean default false")
-	private boolean cc_state_isActive;
-
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "country_id")
-	private Countries cc_countries;
 
 	public Countries getCc_countries() {
 		return cc_countries;

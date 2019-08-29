@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mc.GiftCards.dto.Countries;
+import com.mc.GiftCards.dto.StateDto;
 import com.mc.GiftCards.dto.States;
 import com.mc.GiftCards.services.CountriesServive;
 import com.mc.GiftCards.services.StatesServive;
@@ -36,13 +37,15 @@ public class StateController {
 	}
 
 	@RequestMapping(value = "/addState", method = RequestMethod.POST)
-	public String saveBrand(Model model, @ModelAttribute("states") States states) {
+	public String saveBrand(Model model, @ModelAttribute("states") States states, 
+			@ModelAttribute("countries") Countries cntries) {
 		String substr = states.getCc_state_name();
 		String state_code = substr.substring(0, 2).toUpperCase();
 		states.setCc_state_code(state_code);
 		states.setCc_state_createdby("777");
-		//states.setCc_countries(null);
+		states.setCc_countries(cntries);
 		statesService.save(states);
+		System.out.println("---mycnid--"+cntries.getCountry_id());
 		return "redirect:stateList";
 	}
 

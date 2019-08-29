@@ -1,22 +1,25 @@
 package com.mc.GiftCards.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mc.GiftCards.dto.Categories;
+import com.mc.GiftCards.dto.Category;
 import com.mc.GiftCards.dto.Cities;
 import com.mc.GiftCards.dto.Countries;
 import com.mc.GiftCards.dto.Coupons;
 import com.mc.GiftCards.dto.Locations;
 import com.mc.GiftCards.dto.States;
 import com.mc.GiftCards.dto.Stores;
-import com.mc.GiftCards.dto.SubCategories;
+import com.mc.GiftCards.dto.SubCategory;
 import com.mc.GiftCards.services.CategoryServive;
 import com.mc.GiftCards.services.CitiesService;
 import com.mc.GiftCards.services.CountriesServive;
@@ -56,13 +59,14 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getRootPage(Model model) {
 		Coupons coupons = new Coupons();
-		List<Categories> categoriesList = categoryService.findAll();
+		List<Category> categoriesList = categoryService.findAll();
 		List<Stores> storesList = storeservice.findAll();
 		List<Countries> countriesList = counryService.findAll();
 		List<States> statesList = stateService.findAll();
 		List<Cities> citiesList = cityService.findAll();
 		List<Locations> locationsList = locationServices.findAll();
-		List<SubCategories> subcategoriesList = subcategoryservice.findAll();
+		List<SubCategory> subcategoriesList = new ArrayList<SubCategory>();
+		
 		List<Coupons> couponsList = couponsService.findAll();
 		model.addAttribute("coupons", coupons);
 		model.addAttribute("storesList", storesList);
@@ -102,16 +106,16 @@ public class HomeController {
 
 	}
 
-	@RequestMapping(value = "/products", method = RequestMethod.GET)
-	public String getProducts(Model model) {
+	@RequestMapping(value = "/products/{categoryId}", method = RequestMethod.GET)
+	public String getProducts(Model model, @PathVariable("categoryId") Long categoryId) {
 		Coupons coupons = new Coupons();
-		List<Categories> categoriesList = categoryService.findAll();
+		List<Category> categoriesList = categoryService.findAll();
 		List<Stores> storesList = storeservice.findAll();
 		List<Countries> countriesList = counryService.findAll();
 		List<States> statesList = stateService.findAll();
 		List<Cities> citiesList = cityService.findAll();
 		List<Locations> locationsList = locationServices.findAll();
-		List<SubCategories> subcategoriesList = subcategoryservice.findAll();
+		List<SubCategory> subcategoriesList = subcategoryservice.findByCategory(categoryId);
 		List<Coupons> couponsList = couponsService.findAll();
 		model.addAttribute("coupons", coupons);
 		model.addAttribute("storesList", storesList);

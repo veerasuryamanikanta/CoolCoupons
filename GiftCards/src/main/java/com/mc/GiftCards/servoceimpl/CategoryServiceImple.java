@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mc.GiftCards.dto.Categories;
+import com.mc.GiftCards.dto.Category;
 import com.mc.GiftCards.repositories.CategoryRepository;
 import com.mc.GiftCards.services.CategoryServive;
 
@@ -18,19 +18,19 @@ public class CategoryServiceImple implements CategoryServive {
 	private CategoryRepository categoryRepository;
 
 	@Override
-	public Categories save(Categories categories) {
+	public Category save(Category categories) {
 		// TODO Auto-generated method stub
 		return categoryRepository.save(categories);
 	}
 
 	@Override
-	public List<Categories> findAll() {
+	public List<Category> findAll() {
 		// TODO Auto-generated method stub
-		return (List<Categories>) categoryRepository.findAll();
+		return (List<Category>) categoryRepository.findAll();
 	}
 
 	@Override
-	public Categories findOne(Long id) {
+	public Category findOne(Long id) {
 		// TODO Auto-generated method stub
 		return categoryRepository.findOne(id);
 	}

@@ -2,16 +2,16 @@ package com.mc.GiftCards.services;
 
 import java.util.List;
 
-import com.mc.GiftCards.dto.Categories;
+import com.mc.GiftCards.dto.Category;
 
 
 public interface CategoryServive {
 
-	Categories save(Categories categories);
+	Category save(Category categories);
 
-	List<Categories> findAll();
+	List<Category> findAll();
 	
-	Categories findOne(Long id);
+	Category findOne(Long id);
 	
 	void removeOne(Long id);
 	

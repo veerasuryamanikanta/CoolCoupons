@@ -99,10 +99,10 @@
 					data-th-each="cat : ${subcategoriesList}">
 					<div class="brands" onclick="@{/admin}">
 						<!-- <img
-							th:src="@{'image/uploads/categories/' + ${cat.cc_cat_imagepath}}"
+							th:src="@{'image/uploads/categories/' + ${cat.imagePath}}"
 							width="200px" alt="01" /> -->
 						<div class="coup-tit">
-							<a th:href="@{/products}" th:text="${cat.cc_subcat_name}"></a>
+							<a th:text="${cat.subCategoryName}"></a>
 						</div>
 					</div>
 				</div>

@@ -91,11 +91,11 @@ public class Banners {
 		this.cc_isActive = cc_isActive;
 	}
 
-	public SubCategories getCc_subcategory() {
+	public SubCategory getCc_subcategory() {
 		return cc_subcategory;
 	}
 
-	public void setCc_subcategory(SubCategories cc_subcategory) {
+	public void setCc_subcategory(SubCategory cc_subcategory) {
 		this.cc_subcategory = cc_subcategory;
 	}
 
@@ -124,7 +124,7 @@ public class Banners {
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "cc_subcat_id")
-	private SubCategories cc_subcategory;
+	private SubCategory cc_subcategory;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "cc_loc_id")

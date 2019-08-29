@@ -52,6 +52,7 @@
 	</script>
 
 
+
 	<!-- header -->
 	<!-- <div class="header">
 		<div class="">
@@ -168,6 +169,9 @@
 
 	<div>&nbsp;</div>
 	<div class="container">
+
+
+
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 
@@ -375,6 +379,22 @@
 	<!-- Online-coupons -->
 	<div class="top-brands" id="topcoupons">
 		<div class="container">
+
+			<div class="header">
+				<div class="form-group">
+					<label class="control-label col-sm-3">City</label>
+					<div class="col-sm-8">
+						<select class="form-control">
+							<option data-th-each="citi : ${citiesList}"
+								th:text="${citi.cc_city_name}" />
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div>&nbsp;</div>
+			<div>&nbsp;</div>
+
 			<h3>Online Ads</h3>
 			<div class="brands-cont">
 
@@ -385,11 +405,10 @@
 				<div class="col-md-3 text-center"
 					data-th-each="cat : ${categoriesList}">
 					<div class="brands" onclick="@{/admin}">
-						<img
-							th:src="@{'image/uploads/categories/' + ${cat.cc_cat_imagepath}}"
+						<img th:src="@{'image/uploads/categories/' + ${cat.imagePath}}"
 							width="200px" alt="01" />
 						<div class="coup-tit">
-							<a th:href="@{/products}" th:text="${cat.cc_catg_name}"></a>
+							<a th:href="@{'/products/'+${cat.id}}" th:text="${cat.name}"></a>
 						</div>
 
 
@@ -405,12 +424,12 @@
 		</div>
 	</div>
 	<!-- //online-brands -->
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	<!-- book-coupons -->
 	<!-- <div class="top-brands" id="topcoupons">
 		<div class="container">
@@ -444,9 +463,9 @@
 		</div>
 	</div> -->
 	<!-- //book-brands -->
-	
-	
-	
+
+
+
 
 
 	<!-- special-deals -->

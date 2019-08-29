@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mc.GiftCards.dto.Categories;
+import com.mc.GiftCards.dto.Category;
 import com.mc.GiftCards.dto.Cities;
 import com.mc.GiftCards.dto.Countries;
 import com.mc.GiftCards.dto.Locations;
 import com.mc.GiftCards.dto.States;
 import com.mc.GiftCards.dto.Stores;
-import com.mc.GiftCards.dto.SubCategories;
+import com.mc.GiftCards.dto.SubCategory;
 import com.mc.GiftCards.services.CategoryServive;
 import com.mc.GiftCards.services.CitiesService;
 import com.mc.GiftCards.services.CountriesServive;
@@ -51,13 +51,13 @@ public class StoreController {
 	@RequestMapping(value = "/addstore", method = RequestMethod.GET)
 	public String addSubCategories(Model model) {
 		Stores stores = new Stores();
-		List<Categories> categoriesList = categoryService.findAll();
+		List<Category> categoriesList = categoryService.findAll();
 		List<Stores> storesList = storeservice.findAll();
 		List<Countries> countriesList = counryService.findAll();
 		List<States> statesList = stateService.findAll();
 		List<Cities> citiesList = cityService.findAll();
 		List<Locations> locationsList = locationServices.findAll();
-		List<SubCategories> subcategoriesList = subcategoryservice.findAll();
+		List<SubCategory> subcategoriesList = subcategoryservice.findAll();
 		model.addAttribute("stores", stores);
 		model.addAttribute("storesList", storesList);
 		model.addAttribute("countriesList", countriesList);
@@ -74,13 +74,13 @@ public class StoreController {
 	public String saveSubCategories(Model model, @ModelAttribute("strs") Stores strs) {
 		storeservice.save(strs);
 		Stores stores = new Stores();
-		List<Categories> categoriesList = categoryService.findAll();
+		List<Category> categoriesList = categoryService.findAll();
 		List<Stores> storesList = storeservice.findAll();
 		List<Countries> countriesList = counryService.findAll();
 		List<States> statesList = stateService.findAll();
 		List<Cities> citiesList = cityService.findAll();
 		List<Locations> locationsList = locationServices.findAll();
-		List<SubCategories> subcategoriesList = subcategoryservice.findAll();
+		List<SubCategory> subcategoriesList = subcategoryservice.findAll();
 		model.addAttribute("stores", stores);
 		model.addAttribute("storesList", storesList);
 		model.addAttribute("countriesList", countriesList);

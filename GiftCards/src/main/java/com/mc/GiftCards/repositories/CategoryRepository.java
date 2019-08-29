@@ -2,11 +2,11 @@ package com.mc.GiftCards.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.mc.GiftCards.dto.Categories;
+import com.mc.GiftCards.dto.Category;
 
 
 
-public interface CategoryRepository extends CrudRepository<Categories, Long> {
+public interface CategoryRepository extends CrudRepository<Category, Long> {
 	
 	
 }
