@@ -39,6 +39,12 @@ public class Cities {
 	@Column(name = "cc_city_isActive", columnDefinition = "boolean default false")
 	private boolean cc_city_isActive;
 
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "state_id")
+	private States cc_states;
+	
+	
+	
 	public Long getCc_city_id() {
 		return cc_city_id;
 	}
@@ -86,10 +92,6 @@ public class Cities {
 	public void setCc_states(States cc_states) {
 		this.cc_states = cc_states;
 	}
-
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "state_id")
-	private States cc_states;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_cities", cascade = CascadeType.ALL)
 	private Set<Locations> cc_locations;

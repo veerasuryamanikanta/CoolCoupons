@@ -5,21 +5,39 @@ import java.util.Set;
 import org.springframework.web.multipart.MultipartFile;
 
 public class CategoryDto {
-	
+
 	private Long id;
+	private Long city_id;
+	private byte[] photo;
+
+	public byte[] getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
+
+	public Long getCity_id() {
+		return city_id;
+	}
+
+	public void setCity_id(Long city_id) {
+		this.city_id = city_id;
+	}
 
 	private String name;
-	
+
 	private String imagePath;
-	
+
 	private MultipartFile image;
 
 	private Long createdBy;
-	
+
 	private String createdDate;
-	
+
 	private boolean active;
-	
+
 	private Set<Long> subCategoryIdList;
 
 	public Long getId() {
@@ -73,7 +91,7 @@ public class CategoryDto {
 	public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
 	}
-	
+
 	public String getCreatedDate() {
 		return createdDate;
 	}
@@ -85,5 +103,5 @@ public class CategoryDto {
 	public void setImage(MultipartFile image) {
 		this.image = image;
 	}
-	
+
 }

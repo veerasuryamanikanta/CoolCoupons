@@ -1,8 +1,18 @@
 package com.mc.GiftCards.bean;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class SubCategoryDto {
 
 	private Long id;
+	private byte[] photo;
+	public byte[] getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
 
 	private String subCategoryName;
 
@@ -13,6 +23,27 @@ public class SubCategoryDto {
 	private boolean active;
 
 	private Long categoryId;
+	
+	private String imagePath;
+
+	private MultipartFile image;
+
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
+	public MultipartFile getImage() {
+		return image;
+	}
+
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
 
 	public Long getId() {
 		return id;

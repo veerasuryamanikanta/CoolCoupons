@@ -43,7 +43,7 @@ public class CityController {
 	}
 
 	@RequestMapping(value = "/addCity", method = RequestMethod.POST)
-	public String saveSubCategories(Model model, @ModelAttribute("city") Cities city) {
+	public String saveSubCategories(Model model, @ModelAttribute("city") Cities city) {	
 		citiesService.save(city);
 		Cities cities = new Cities();
 		List<Countries> countriesList = countriesService.findAll();

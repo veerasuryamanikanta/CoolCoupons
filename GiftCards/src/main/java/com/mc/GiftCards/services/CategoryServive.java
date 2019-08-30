@@ -15,4 +15,7 @@ public interface CategoryServive {
 	
 	void removeOne(Long id);
 	
+	List<Category> findByCategory(Long categoryId);
+	
+	
 }

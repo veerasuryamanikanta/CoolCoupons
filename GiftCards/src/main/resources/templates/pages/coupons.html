@@ -7,41 +7,16 @@
 	<div th:fragment="body-coupons">
 		<div class="col-sm-5">
 			<div>&nbsp;</div>
-			<form class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+			<form class="form-horizontal" role="form" method="post"
+				enctype="multipart/form-data">
 				<fieldset style="background: #f2f2f2;">
-					<h3 class="leg-te">Add Coupon</h3>
-
-					<div>&nbsp;</div>
-
-					<div class="form-group">
-						<label class="control-label col-sm-3">Country</label>
-						<div class="col-sm-8">
-							<select class="form-control">
-								<option data-th-each="cat : ${countriesList}"
-									th:text="${cat.cc_country_name}" />
-							</select>
-						</div>
-					</div>
+					<h3 class="leg-te">Add Book Voucher</h3>
 
 
 					<div>&nbsp;</div>
 
 					<div class="form-group">
-						<label class="control-label col-sm-3">State</label>
-						<div class="col-sm-8">
-							<select class="form-control">
-								<option data-th-each="cat : ${statesList}"
-									th:text="${cat.cc_state_name}" />
-							</select>
-						</div>
-					</div>
-
-
-
-					<div>&nbsp;</div>
-
-					<div class="form-group">
-						<label class="control-label col-sm-3">City</label>
+						<label class="control-label col-sm-3">Select City</label>
 						<div class="col-sm-8">
 							<select class="form-control">
 								<option data-th-each="cat : ${citiesList}"
@@ -52,55 +27,9 @@
 
 					<div>&nbsp;</div>
 
-					<div class="form-group">
-						<label class="control-label col-sm-3">Locations</label>
-						<div class="col-sm-8">
-							<select class="form-control">
-								<option data-th-each="cat : ${locationsList}"
-									th:text="${cat.cc_loc_name}" />
-							</select>
-						</div>
-					</div>
-
-					<div>&nbsp;</div>
 
 					<div class="form-group">
-						<label class="control-label col-sm-3">Category</label>
-						<div class="col-sm-8">
-							<select class="form-control">
-								<option data-th-each="cat : ${categoriesList}"
-									th:text="${cat.cc_catg_name}" />
-							</select>
-						</div>
-					</div>
-
-
-					<div>&nbsp;</div>
-
-					<div class="form-group">
-						<label class="control-label col-sm-3">Sub Category</label>
-						<div class="col-sm-8">
-							<select class="form-control">
-								<option data-th-each="cat : ${subcategoriesList}"
-									th:text="${cat.cc_subcat_name}" />
-							</select>
-						</div>
-					</div>
-					<div>&nbsp;</div>
-
-					<div class="form-group">
-						<label class="control-label col-sm-3">Store</label>
-						<div class="col-sm-8">
-							<select class="form-control">
-								<option data-th-each="cat : ${storesList}"
-									th:text="${cat.cc_store_name}" />
-							</select>
-						</div>
-					</div>
-					<div>&nbsp;</div>
-
-					<div class="form-group">
-						<label class="control-label col-sm-3">Name </label>
+						<label class="control-label col-sm-3">Title </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="coupon" id="coupon"
 								required="required" th:value="${coupons.coupon}" />
@@ -108,25 +37,16 @@
 					</div>
 
 					<div>&nbsp;</div>
-					
+
 					<div class="form-group">
-						<label class="control-label col-sm-3">Name </label>
+						<label class="control-label col-sm-3">Upload Image </label>
 						<div class="col-sm-8">
-							<input type="file" class="form-control" name="cc_coupon_image" id="cc_coupon_image"
-								required="required" th:value="${coupons.cc_coupon_image}" />
+							<input type="file" class="form-control" name="cc_coupon_image"
+								id="cc_coupon_image" required="required"
+								th:value="${coupons.cc_coupon_image}" />
 						</div>
 					</div>
-					
-					
-					<!-- <div class="form-group">
-						<div class="col-md-2">
-							<label for="bookImage">Upload book image</label>
-						</div>
-						<div class="col-md-8">
-							<input id="bookImage" type="file" name="bookImage"
-								th:value="${book.bookImage}" />
-						</div>
-					</div> -->
+
 					<div>&nbsp;</div>
 					<div class="form-group">
 						<label class="control-label col-sm-3"></label>
@@ -153,7 +73,7 @@
 				<thead>
 					<tr>
 						<th>S.NO.</th>
-						<th>Name</th>
+						<th>Title</th>
 						<th>Edit</th>
 						<th>Delete</th>
 					</tr>

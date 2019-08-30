@@ -51,13 +51,37 @@
 		$('#myModal88').modal('show');
 	</script>
 
+	<!-- header -->
+	<div class="header" id="home1">
+		<div class="container hidden-xs mob-640">
+			<div class="w3l_logo pull-left">
+				<!--				<h1><a href="index.html">Coolcoupons<span>Your stores. Your place.</span></a></h1>-->
+				<img src="img/logo.jpg" alt="logo" width="240" />
+			</div>
 
+			<div class="pull-right">
+				<div>
+					<small><i class="fa fa-map-marker location-icon"></i> </small> <select
+						class="forms-inps" name="city_id">
+						<option data-th-each="citi : ${citiesList}"
+							th:text="${citi.cc_city_name}" />
+					</select>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- //header -->
+
+	<!-- navigation -->
 	<div class="navigation" id="home1">
 		<div class="container">
 			<nav class="navbar navbar-default">
 				<!-- Brand and toggle get grouped for better mobile display -->
-				<!-- <div class="pull-right mob-link">kk</div> -->
-				<div class="navbar-header nav_2">
+				<div class="m-logo hidden-md hidden-lg ">
+					<img src="img/mlogo.png" width="140" alt="logo" />
+				</div>
+				<div class="navbar-header nav_2 ">
 					<button type="button"
 						class="navbar-toggle collapsed navbar-toggle1"
 						data-toggle="collapse" data-target="#bs-megadropdown-tabs">
@@ -68,10 +92,10 @@
 				</div>
 
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-
 					<ul class="nav navbar-nav">
-						<!-- <li><a href="#" class="act">Home</a></li> -->
 						<li><a href="#topcoupons" class="scroll">Online
+								Advertising</a></li>
+						<li><a href="#popularstores" class="scroll">Coupon Book
 								Advertising</a></li>
 						<li><a href="#aboutus" class="scroll">About Us</a></li>
 						<li><a href="#feedback" class="scroll">Feed Back</a></li>
@@ -79,9 +103,28 @@
 						<li><a href="#contactus" class="scroll">Contact Us</a></li>
 					</ul>
 				</div>
+
+				<div class="mobile-search hidden-md hidden-lg ">
+
+					<div class="search-container">
+						<div class="search-box">
+							<ul>
+								<li><i class="fa fa-map-marker location-icon"></i></li>
+								<li class="loc-cont"><select class="search-location"
+									name="city_id">
+										<option data-th-each="citi : ${citiesList}"
+											th:text="${citi.cc_city_name}" />
+								</select></li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+				</div>
 			</nav>
 		</div>
 	</div>
+	<!-- //navigation -->
 	<div>&nbsp;</div>
 
 
@@ -94,16 +137,14 @@
 				<div th:if="${couponscount}">
 					<h1 align="center">Ads Available Now</h1>
 				</div>
-
 				<div class="col-md-3 text-center"
 					data-th-each="cat : ${subcategoriesList}">
-					<div class="brands" onclick="@{/admin}">
-						<!-- <img
-							th:src="@{'image/uploads/categories/' + ${cat.imagePath}}"
-							width="200px" alt="01" /> -->
-						<div class="coup-tit">
+					<div class="brands">
+						<img th:src="@{'subcategories/' + ${cat.imagePath}}" width="200px"
+							alt="01" />
+						<!-- <div class="coup-tit">
 							<a th:text="${cat.subCategoryName}"></a>
-						</div>
+						</div> -->
 					</div>
 				</div>
 
@@ -132,7 +173,7 @@
 	</div>
 	<!-- about us -->
 
-	
+
 	<!-- newsletter -->
 	<div class="newsletter">
 		<div class="container">
@@ -204,7 +245,7 @@
 		<div class="footer-copy">
 			<div class="footer-copy1">
 				<div class="footer-copy-pos">
-					<a href="#home1" class="scroll"><img src="images/arrow.png"
+					<a href="#home1" class="scroll"><img src="img/arrow.png"
 						alt=" " class="img-responsive" /></a>
 				</div>
 			</div>

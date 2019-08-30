@@ -11,7 +11,7 @@ public interface SubCategoryservice {
 
 	List<SubCategory> findAll();
 	
-	List<SubCategory> findByCategory(Long categoryId);
+	List<SubCategory> findByCategory(Long cityId);
 	
 	SubCategory findOne(Long id);
 	

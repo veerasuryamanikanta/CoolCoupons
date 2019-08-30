@@ -41,6 +41,12 @@ public class CategoryServiceImple implements CategoryServive {
 		categoryRepository.delete(id);
 	}
 
+	@Override
+	public List<Category> findByCategory(Long cityId) {
+		// TODO Auto-generated method stub
+		return categoryRepository.findByCc_categoriesCc_city_id(cityId);
+	}
+
 
 
 	

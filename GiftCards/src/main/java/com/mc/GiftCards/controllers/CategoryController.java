@@ -15,10 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.mc.GiftCards.bean.CategoryDto;
 import com.mc.GiftCards.dto.Category;
+import com.mc.GiftCards.dto.Cities;
 import com.mc.GiftCards.services.CategoryServive;
+import com.mc.GiftCards.services.CitiesService;
 
 
 
@@ -27,13 +28,19 @@ public class CategoryController {
 
 	@Autowired
 	private CategoryServive categoryService;
+	
+	@Autowired
+	private CitiesService citiesService;
+	
 
 	@RequestMapping(value = "/addcategory", method = RequestMethod.GET)
 	public String addCategories(Model model) {
 		List<Category> categoriesList = categoryService.findAll();
+		List<Cities> citiesList = citiesService.findAll();
 		CategoryDto categoriesS = new CategoryDto();
 		model.addAttribute("categoriesS", categoriesS);
 		model.addAttribute("categories", "categories");
+		model.addAttribute("citiesList", citiesList);
 		model.addAttribute("categoriesList", categoriesList);
 		return "adminhome";
 	}
@@ -46,6 +53,7 @@ public class CategoryController {
 		MultipartFile image_upload = cat.getImage();
 		try {
 			byte[] bytes = image_upload.getBytes();
+			category.setPhoto(bytes.toString());
 			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(
 					new File("src/main/resources/static/image/uploads/categories/" +
 			image_upload.getOriginalFilename())));
@@ -55,13 +63,16 @@ public class CategoryController {
 			e.printStackTrace();
 		}
 		category.setImagePath(image_upload.getOriginalFilename());
-		
+		category.setCc_city_id(citiesService.findOne(cat.getCity_id()));
+		//category.setCc_city_id(citiesService.findOne(category.getCategoryId());
 		
 		categoryService.save(category);
 		List<Category> categoriesList = categoryService.findAll();
+		List<Cities> citiesList = citiesService.findAll();
 		CategoryDto categoriesS = new CategoryDto();
 		model.addAttribute("categoriesS", categoriesS);
 		model.addAttribute("categories", "categories");
+		model.addAttribute("citiesList", citiesList);
 		model.addAttribute("categoriesList", categoriesList);
 		return "adminhome";
 	}

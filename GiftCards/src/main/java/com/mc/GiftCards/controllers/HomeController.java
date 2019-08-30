@@ -2,7 +2,6 @@ package com.mc.GiftCards.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,17 +55,21 @@ public class HomeController {
 	@Autowired
 	private CouponsService couponsService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String getRootPage(Model model) {
+	@RequestMapping(value = "/{city_id}", method = RequestMethod.GET)
+	public String getNavPage(Model model, @PathVariable("city_id") Long city_id) {
+
+		System.out.println("---val---" + city_id);
 		Coupons coupons = new Coupons();
-		List<Category> categoriesList = categoryService.findAll();
+		// List<Category> categoriesList = categoryService.findAll();
+		List<Category> categoriesList = categoryService.findByCategory(city_id);
+
 		List<Stores> storesList = storeservice.findAll();
 		List<Countries> countriesList = counryService.findAll();
 		List<States> statesList = stateService.findAll();
 		List<Cities> citiesList = cityService.findAll();
 		List<Locations> locationsList = locationServices.findAll();
 		List<SubCategory> subcategoriesList = new ArrayList<SubCategory>();
-		
+
 		List<Coupons> couponsList = couponsService.findAll();
 		model.addAttribute("coupons", coupons);
 		model.addAttribute("storesList", storesList);
@@ -83,6 +86,46 @@ public class HomeController {
 		}
 		model.addAttribute("couponsList", couponsList);
 		model.addAttribute("coupon", "coupon");
+		return "homepage";
+	}
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String getRootPage(Model model) {
+
+		// System.out.println("--val--"+city_id);
+
+		Coupons coupons = new Coupons();
+		List<Category> categoriesList = categoryService.findAll();
+		List<Stores> storesList = storeservice.findAll();
+		List<Countries> countriesList = counryService.findAll();
+		List<States> statesList = stateService.findAll();
+		List<Cities> citiesList = cityService.findAll();
+		List<Locations> locationsList = locationServices.findAll();
+		List<SubCategory> subcategoriesList = new ArrayList<SubCategory>();
+
+		List<Coupons> couponsList = couponsService.findAll();
+		model.addAttribute("coupons", coupons);
+		model.addAttribute("storesList", storesList);
+		model.addAttribute("countriesList", countriesList);
+		model.addAttribute("statesList", statesList);
+		model.addAttribute("citiesList", citiesList);
+		model.addAttribute("locationsList", locationsList);
+		model.addAttribute("categoriesList", categoriesList);
+		model.addAttribute("subcategoriesList", subcategoriesList);
+		if (categoriesList.size() != 0) {
+			model.addAttribute("couponscount", false);
+			/*ArrayList<String> arraylist = new ArrayList<>();
+			for (int i = 0; i < arraylist.size(); i++) {
+				arraylist.add(Base64.getEncoder().encodeToString(categoriesList.get(i).getPhoto()));
+			}
+			model.addAttribute("pic", arraylist);*/
+		} else {
+			model.addAttribute("couponscount", true);
+
+		}
+		model.addAttribute("couponsList", couponsList);
+		model.addAttribute("coupon", "coupon");
+
 		return "homepage";
 	}
 

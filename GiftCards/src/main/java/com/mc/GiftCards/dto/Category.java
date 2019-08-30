@@ -10,6 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -29,25 +32,48 @@ public class Category {
 
 	@Column(name = "cc_catg_name", nullable = false)
 	private String name;
-	
+
 	@Column(name = "cc_cat_imagepath")
 	private String imagePath;
-	
+
 	@Transient
 	private MultipartFile image;
 
 	@Column(name = "cc_createdby")
 	private Long createdBy;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date createdDate;
-	
+
 	@Column(name = "is_active", columnDefinition = "boolean default false")
 	private boolean active;
-	
+
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "category", cascade = CascadeType.ALL)
 	private Set<SubCategory> subcategoryList;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cc_city_id")
+	private Cities cc_city_id;
+
+	@Lob
+	private String photo;
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public Cities getCc_city_id() {
+		return cc_city_id;
+	}
+
+	public void setCc_city_id(Cities cc_city_id) {
+		this.cc_city_id = cc_city_id;
+	}
 
 	public Long getId() {
 		return id;
@@ -112,5 +138,5 @@ public class Category {
 	public void setSubcategoryList(Set<SubCategory> subcategoryList) {
 		this.subcategoryList = subcategoryList;
 	}
-	
+
 }
