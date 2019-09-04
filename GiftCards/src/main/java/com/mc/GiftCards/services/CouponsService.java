@@ -15,4 +15,6 @@ public interface CouponsService {
 	
 	void removeOne(Long id);
 	
+	List<Coupons> findByCoupons(Long couponId);
+	
 }

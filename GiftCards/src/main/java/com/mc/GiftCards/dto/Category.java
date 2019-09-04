@@ -35,6 +35,18 @@ public class Category {
 
 	@Column(name = "cc_cat_imagepath")
 	private String imagePath;
+	
+	@Column(name = "cc_addType")
+	private String adType;
+	
+
+	public String getAdType() {
+		return adType;
+	}
+
+	public void setAdType(String adType) {
+		this.adType = adType;
+	}
 
 	@Transient
 	private MultipartFile image;

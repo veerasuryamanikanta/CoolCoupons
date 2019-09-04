@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.mc.GiftCards.bean.CitiesDto;
 import com.mc.GiftCards.dto.Category;
 import com.mc.GiftCards.dto.Cities;
 import com.mc.GiftCards.dto.Countries;
@@ -56,9 +57,9 @@ public class HomeController {
 	private CouponsService couponsService;
 
 	@RequestMapping(value = "/{city_id}", method = RequestMethod.GET)
-	public String getNavPage(Model model, @PathVariable("city_id") Long city_id) {
+	public String getDeskNavPage(Model model, @PathVariable("city_id") Long city_id) {
 
-		System.out.println("---val---" + city_id);
+		//System.out.println("---val---" + city_id);
 		Coupons coupons = new Coupons();
 		// List<Category> categoriesList = categoryService.findAll();
 		List<Category> categoriesList = categoryService.findByCategory(city_id);
@@ -89,20 +90,16 @@ public class HomeController {
 		return "homepage";
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String getRootPage(Model model) {
-
-		// System.out.println("--val--"+city_id);
-
+	@RequestMapping(value = "/subcategories", method = RequestMethod.POST)
+	public String getNavPage(Model model, CitiesDto citiesDto) {
 		Coupons coupons = new Coupons();
-		List<Category> categoriesList = categoryService.findAll();
+		List<Category> categoriesList = categoryService.findByCategory(citiesDto.getCc_city_id());
 		List<Stores> storesList = storeservice.findAll();
 		List<Countries> countriesList = counryService.findAll();
 		List<States> statesList = stateService.findAll();
 		List<Cities> citiesList = cityService.findAll();
 		List<Locations> locationsList = locationServices.findAll();
 		List<SubCategory> subcategoriesList = new ArrayList<SubCategory>();
-
 		List<Coupons> couponsList = couponsService.findAll();
 		model.addAttribute("coupons", coupons);
 		model.addAttribute("storesList", storesList);
@@ -114,18 +111,46 @@ public class HomeController {
 		model.addAttribute("subcategoriesList", subcategoriesList);
 		if (categoriesList.size() != 0) {
 			model.addAttribute("couponscount", false);
-			/*ArrayList<String> arraylist = new ArrayList<>();
-			for (int i = 0; i < arraylist.size(); i++) {
-				arraylist.add(Base64.getEncoder().encodeToString(categoriesList.get(i).getPhoto()));
-			}
-			model.addAttribute("pic", arraylist);*/
+		} else {
+			model.addAttribute("couponscount", true);
+		}
+		model.addAttribute("couponsList", couponsList);
+		model.addAttribute("coupon", "coupon");
+
+		return "homepage";
+	}
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String getRootPage(Model model) {
+		Coupons coupons = new Coupons();
+		List<Category> categoriesList = categoryService.findByCategory(new Long(1));
+		List<Stores> storesList = storeservice.findAll();
+		List<Countries> countriesList = counryService.findAll();
+		List<States> statesList = stateService.findAll();
+		List<Cities> citiesList = cityService.findAll();
+		List<Locations> locationsList = locationServices.findAll();
+		List<SubCategory> subcategoriesList = new ArrayList<SubCategory>();
+		List<Coupons> couponsList = couponsService.findAll();
+		model.addAttribute("coupons", coupons);
+		model.addAttribute("storesList", storesList);
+		model.addAttribute("countriesList", countriesList);
+		model.addAttribute("statesList", statesList);
+		model.addAttribute("citiesList", citiesList);
+		model.addAttribute("locationsList", locationsList);
+		model.addAttribute("categoriesList", categoriesList);
+		model.addAttribute("subcategoriesList", subcategoriesList);
+		if (categoriesList.size() != 0) {
+			model.addAttribute("couponscount", false);
 		} else {
 			model.addAttribute("couponscount", true);
 
 		}
 		model.addAttribute("couponsList", couponsList);
 		model.addAttribute("coupon", "coupon");
-
+		CitiesDto citiesDto = new CitiesDto();
+		model.addAttribute("cities", citiesDto);
+		Cities cities_spin = new Cities();
+		model.addAttribute("cities_spin", cities_spin);
 		return "homepage";
 	}
 

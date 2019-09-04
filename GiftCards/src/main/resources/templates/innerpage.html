@@ -1,139 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
 	xmlns:sec="http://www.w3.org/1999/xhtml">
-<head>
-<title>Coolcoupons</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Coolcoupons " />
+<head th:replace="common/header :: common-header" />
 
-<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css"
-	media="all" />
-<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"
-	media="all" />
-<link th:href="@{/css/fasthover.css}" rel="stylesheet" type="text/css"
-	media="all" />
-<link th:href="@{/css/popuo-box.css}" rel="stylesheet" type="text/css"
-	media="all" />
-<link th:href="@{/css/font-awesome.css}" rel="stylesheet"
-	type="text/css" media="all" />
-
-
-<script src="js/jquery.min.js"></script>
-
-<link th:href="@{/css/jquery.countdown.css}" rel="stylesheet"
-	type="text/css" media="all" />
-
-<link href='//fonts.googleapis.com/css?family=Glegoo:400,700'
-	rel='stylesheet' type='text/css' />
-<link
-	href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
-	rel='stylesheet' type='text/css' />
-
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event) {
-			event.preventDefault();
-			$('html,body').animate({
-				scrollTop : $(this.hash).offset().top
-			}, 1000);
-		});
-	});
-</script>
-
-</head>
 <body>
-	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-	<!-- //for bootstrap working -->
-	<!-- header modal -->
 
-	<script>
-		$('#myModal88').modal('show');
-	</script>
-
-	<!-- header -->
-	<div class="header" id="home1">
-		<div class="container hidden-xs mob-640">
-			<div class="w3l_logo pull-left">
-				<!--				<h1><a href="index.html">Coolcoupons<span>Your stores. Your place.</span></a></h1>-->
-				<img src="img/logo.jpg" alt="logo" width="240" />
-			</div>
-
-			<div class="pull-right">
-				<div>
-					<small><i class="fa fa-map-marker location-icon"></i> </small> <select
-						class="forms-inps" name="city_id">
-						<option data-th-each="citi : ${citiesList}"
-							th:text="${citi.cc_city_name}" />
-					</select>
-				</div>
-			</div>
-
-		</div>
-	</div>
-	<!-- //header -->
 
 	<!-- navigation -->
-	<div class="navigation" id="home1">
-		<div class="container">
-			<nav class="navbar navbar-default">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="m-logo hidden-md hidden-lg ">
-					<img src="img/mlogo.png" width="140" alt="logo" />
-				</div>
-				<div class="navbar-header nav_2 ">
-					<button type="button"
-						class="navbar-toggle collapsed navbar-toggle1"
-						data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-				</div>
-
-				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-					<ul class="nav navbar-nav">
-						<li><a href="#topcoupons" class="scroll">Online
-								Advertising</a></li>
-						<li><a href="#popularstores" class="scroll">Coupon Book
-								Advertising</a></li>
-						<li><a href="#aboutus" class="scroll">About Us</a></li>
-						<li><a href="#feedback" class="scroll">Feed Back</a></li>
-						<li><a href="#faq" class="scroll">Faq</a></li>
-						<li><a href="#contactus" class="scroll">Contact Us</a></li>
-					</ul>
-				</div>
-
-				<div class="mobile-search hidden-md hidden-lg ">
-
-					<div class="search-container">
-						<div class="search-box">
-							<ul>
-								<li><i class="fa fa-map-marker location-icon"></i></li>
-								<li class="loc-cont"><select class="search-location"
-									name="city_id">
-										<option data-th-each="citi : ${citiesList}"
-											th:text="${citi.cc_city_name}" />
-								</select></li>
-							</ul>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-
-				</div>
-			</nav>
-		</div>
-	</div>
-	<!-- //navigation -->
+	<div th:replace="common/navigationbar :: body-navbar"></div>
+	<!-- navigation -->
 	<div>&nbsp;</div>
 
 
+	
 	<!-- Online-coupons -->
 	<div class="top-brands" id="topcoupons">
 		<div class="container">
 			<h3>Online Ads</h3>
 			<div class="brands-cont">
-
 				<div th:if="${couponscount}">
 					<h1 align="center">Ads Available Now</h1>
 				</div>
@@ -153,109 +37,25 @@
 		</div>
 	</div>
 	<!-- //online-brands -->
-	<div class="new-products" id="aboutus">
-		<div class="container">
-			<h3>About Us</h3>
+	
 
-			<p>Famous Footwear promo codes for free delivery are sometimes
-				available. Check this page regularly for savings opportunities.
-				Famous Footwear promo codes for free delivery are sometimes
-				available. Check this page regularly for savings opportunities.</p>
-			<p>Famous Footwear promo codes for free delivery are sometimes
-				available. Check this page regularly for savings opportunities.
-				Famous Footwear promo codes for free delivery are sometimes
-				available. Check this page regularly for savings opportunities.</p>
-			<p>Famous Footwear promo codes for free delivery are sometimes
-				available. Check this page regularly for savings opportunities.
-				Famous Footwear promo codes for free delivery are sometimes
-				available. Check this page regularly for savings opportunities.</p>
-		</div>
-	</div>
 	<!-- about us -->
-
+	<div th:replace="common/home :: body-aboutus"></div>
+	<!-- end of about us -->
 
 	<!-- newsletter -->
-	<div class="newsletter">
-		<div class="container">
-			<div class="col-md-6 w3agile_newsletter_left">
-				<h3>Newsletter</h3>
-				<p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
-			</div>
-			<div class="col-md-6 w3agile_newsletter_right">
-				<form action="#" method="post">
-					<input type="email" name="Email" placeholder="Email"
-						required="required" /> <input type="submit" value="" />
-				</form>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
+	<div th:replace="common/home :: body-newsletter"></div>
 	<!-- //newsletter -->
+
+
 	<!-- footer -->
-	<div class="footer" id="contactus">
-		<div class="container">
-			<div class="w3_footer_grids">
-				<div class="col-md-3 w3_footer_grid">
-					<h3>Contact us</h3>
-					<ul class="address">
-						<li><i class="glyphicon glyphicon-map-marker"
-							aria-hidden="true"></i>1234 , 4th block, Hyderabad <span>Telangana.</span></li>
-						<li><i class="glyphicon glyphicon-envelope"
-							aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone"
-							aria-hidden="true"></i>+1234 567 567</li>
-					</ul>
-				</div>
-				<div class="col-md-3 w3_footer_grid">
-					<h3>Faq</h3>
-					<ul class="info">
-						<li><a href="#">Online Advertising</a></li>
-						<li><a href="#">About Printing</a></li>
-						<li><a href="#">FAQ's</a></li>
-						<li><a href="#l">Special Offers</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 w3_footer_grid">
-					<h3>Feed back</h3>
-					<ul class="info">
-						<li><a href="#">Printing</a></li>
-						<li><a href="#">Ads</a></li>
-						<li><a href="#">Coupons</a></li>
-
-					</ul>
-				</div>
-
-
-				<div class="col-md-3 w3_footer_grid">
-
-
-					<h4>Follow Us</h4>
-					<div class="agileits_social_button">
-						<ul>
-							<li><a href="#" class="facebook"> </a></li>
-							<li><a href="#" class="twitter"> </a></li>
-							<li><a href="#" class="google"> </a></li>
-							<li><a href="#" class="pinterest"> </a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="footer-copy">
-			<div class="footer-copy1">
-				<div class="footer-copy-pos">
-					<a href="#home1" class="scroll"><img src="img/arrow.png"
-						alt=" " class="img-responsive" /></a>
-				</div>
-			</div>
-			<div class="container">
-				<p>&copy; 2019 Coolcoupons. All rights reserved</p>
-			</div>
-		</div>
-	</div>
+	<div th:replace="common/footer :: body-footer"></div>
 	<!-- //footer -->
 
-	<script th:src="@{/js/minicart.js}"></script>
+	<!-- footer -->
+	<div th:replace="common/home :: body-scripts"></div>
+	<!-- //footer -->
+
+
 </body>
 </html>

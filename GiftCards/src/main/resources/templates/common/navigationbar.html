@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<body>
+
+	<div th:fragment="body-navbar">
+
+		<!-- desktop header -->
+		<div class="header" id="home1">
+			<div class="container hidden-xs mob-640">
+				<div class="w3l_logo pull-left">
+					<img src="img/logo.jpg" alt="logo" width="240" />
+				</div>
+
+
+				<div class="pull-right">
+					<!-- <form role="form" method="post" th:action="@{/subcategories}"> -->
+					<form role="form" method="get" th:action="@{/}">
+						<div class="des-location">
+
+							<div class="input-group">
+								<div class="input-group-btn">
+
+									<button type="button" class="btn btn-default dropdown-toggle"
+										data-toggle="dropdown">
+										<span id="srch-category"> Change Location </span> <span
+											class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" id="mnu-category">
+										<li data-th-each="citi : ${citiesList}"><a
+											th:href="@{'/'+${citi.cc_city_id}}"
+											th:text="${citi.cc_city_name}"></a></li>
+									</ul>
+								</div>
+								<input type="hidden" id="txt-category" /> <input type="text"
+									id="txt-search" class="form-control"
+									placeholder="Search for..." /> <span class="input-group-btn">
+									<button id="btn-search" type="submit" class="btn btn-default">
+										<span class="glyphicon glyphicon-search"></span>
+									</button>
+								</span>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+		<!-- end of desktop header -->
+
+		<div class="navigation" id="home1">
+			<div class="container">
+				<!-- navigation -->
+				<nav class="navbar navbar-default">
+					<div class="m-logo hidden-md hidden-lg ">
+						<img src="images/mlogo.png" width="140" alt="logo" />
+					</div>
+
+					<div class="navbar-header nav_2 ">
+						<button type="button"
+							class="navbar-toggle collapsed navbar-toggle1"
+							data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+						<ul class="nav navbar-nav">
+							<li><a href="#topcoupons" class="scroll">Online
+									Advertising</a></li>
+							<li><a href="#popularstores" class="scroll">Coupon Book
+									Advertising</a></li>
+							<li><a href="#aboutus" class="scroll">About Us</a></li>
+							<li><a href="#feedback" class="scroll">Feed Back</a></li>
+							<li><a href="#faq" class="scroll">Faq</a></li>
+							<li><a href="#contactus" class="scroll">Contact Us</a></li>
+						</ul>
+					</div>
+
+					<!-- mobile header -->
+
+					<div class="pull-right">
+						<!-- <form role="form" method="post" th:action="@{/subcategories}"> -->
+						<form role="form" method="get" th:action="@{/}">
+							<div class="des-location">
+
+								<div class="input-group">
+
+									<input type="hidden" id="txt-category" /> <input type="text"
+										id="txt-search" class="form-control"
+										placeholder="Search for..." />
+
+									<div class="input-group-btn">
+
+										<button type="button" class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown">
+											<span id="srch-category"> Change Location </span> <span
+												class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" id="mnu-category">
+											<li class="" data-th-each="citi : ${citiesList}"><a
+												th:href="@{'/'+${citi.cc_city_id}}"
+												th:text="${citi.cc_city_name}"></a></li>
+										</ul>
+									</div>
+									<span class="input-group-btn">
+										<button id="btn-search" type="submit" class="btn btn-default">
+											<span class="glyphicon glyphicon-search"></span>
+										</button>
+									</span>
+
+								</div>
+							</div>
+						</form>
+					</div>
+
+
+					<!-- <div class="mobile-search hidden-md hidden-lg ">
+						<div class="search-container">
+							<form role="form" method="post" th:action="@{/subcategories}">
+								<div class="search-box">
+									<ul>
+
+										<li class="loc-incont"><input class="boarderinput"
+											placeholder="enter here" /></li>
+										<li><i class="fa fa-map-marker location-icon"></i></li>
+										<li class="loc-cont"><select class="search-location "
+											name="cc_city_id">
+												<option data-th-each="citi : ${citiesList}"
+													th:text="${citi.cc_city_name}"
+													th:value="${citi.cc_city_id}" />
+										</select></li>
+
+										<li class="pull-right"><button class="btn btn-sm btn-go"
+												type="submit">Go</button></li>
+									</ul>
+								</div>
+							</form>
+							<div class="clearfix"></div>
+						</div>
+					</div> -->
+					<!-- end of mobile header -->
+				</nav>
+				<!-- navigation -->
+			</div>
+		</div>
+	</div>
+</body>
+</html>

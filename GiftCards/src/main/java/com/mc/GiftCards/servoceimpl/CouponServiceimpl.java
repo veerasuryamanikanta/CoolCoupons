@@ -40,4 +40,10 @@ public class CouponServiceimpl implements CouponsService {
 		couponsRepository.delete(id);
 	}
 
+	@Override
+	public List<Coupons> findByCoupons(Long couponId) {
+		// TODO Auto-generated method stub
+		return couponsRepository.findByCouponsCategory(couponId);
+	}
+
 }
