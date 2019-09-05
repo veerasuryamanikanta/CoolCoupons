@@ -81,36 +81,35 @@
 
 					<!-- mobile header -->
 
-					<div class="pull-right">
+
+
+					<div class="pull-right mobile-search hidden-md hidden-lg">
 						<!-- <form role="form" method="post" th:action="@{/subcategories}"> -->
 						<form role="form" method="get" th:action="@{/}">
 							<div class="des-location">
-
 								<div class="input-group">
-
-									<input type="hidden" id="txt-category" /> <input type="text"
-										id="txt-search" class="form-control"
-										placeholder="Search for..." />
-
+									<span class="input-group-btn">
+										<button id="btn-search" type="submit"
+											class="btn btn-default form-control">
+											<small><i class="fa fa-search location-icon"></i>
+												Search Cool Coupons ....</small>
+										</button>
+									</span>
 									<div class="input-group-btn">
 
 										<button type="button" class="btn btn-default dropdown-toggle"
 											data-toggle="dropdown">
-											<span id="srch-category"> Change Location </span> <span
+											<small><span class="input-group-btn"> <i
+													class="fa fa-map-marker location-icon"></i>
+											</span></small> <span id="srch-category"> Change Location.. </span> <span
 												class="caret"></span>
 										</button>
 										<ul class="dropdown-menu" id="mnu-category">
-											<li class="" data-th-each="citi : ${citiesList}"><a
+											<li data-th-each="citi : ${citiesList}"><a style="color:green; font-size:27px;" 
 												th:href="@{'/'+${citi.cc_city_id}}"
 												th:text="${citi.cc_city_name}"></a></li>
 										</ul>
 									</div>
-									<span class="input-group-btn">
-										<button id="btn-search" type="submit" class="btn btn-default">
-											<span class="glyphicon glyphicon-search"></span>
-										</button>
-									</span>
-
 								</div>
 							</div>
 						</form>
