@@ -54,7 +54,8 @@
 				<!-- navigation -->
 				<nav class="navbar navbar-default">
 					<div class="m-logo hidden-md hidden-lg ">
-						<img src="images/mlogo.png" width="140" alt="logo" />
+						<!-- <img src="images/mlogo.png" width="140" alt="logo" /> -->
+						<h4 style="color: white; align: center; margin-top: 15px">CoolCoupons</h4>
 					</div>
 
 					<div class="navbar-header nav_2 ">
@@ -84,9 +85,11 @@
 
 
 					<div class="pull-right mobile-search hidden-md hidden-lg">
+
 						<!-- <form role="form" method="post" th:action="@{/subcategories}"> -->
 						<form role="form" method="get" th:action="@{/}">
-							<div class="des-location">
+							
+
 								<div class="input-group">
 									<span class="input-group-btn">
 										<button id="btn-search" type="submit"
@@ -105,13 +108,14 @@
 												class="caret"></span>
 										</button>
 										<ul class="dropdown-menu" id="mnu-category">
-											<li data-th-each="citi : ${citiesList}"><a style="color:green; font-size:27px;" 
+											<li data-th-each="citi : ${citiesList}"><a
+												style="color: green; font-size: 27px;"
 												th:href="@{'/'+${citi.cc_city_id}}"
 												th:text="${citi.cc_city_name}"></a></li>
 										</ul>
 									</div>
 								</div>
-							</div>
+							
 						</form>
 					</div>
 
