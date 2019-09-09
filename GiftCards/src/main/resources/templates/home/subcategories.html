@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<body>
+
+	<!-- online ads -->
+	<div th:fragment="body-subcategories">
+
+		<div class="top-brands" id="topcoupons">
+			<div class="container">
+				<div>&nbsp;</div>
+				<div>&nbsp;</div>
+
+				<h3>All Categories</h3>
+				<div class="brands-cont">
+					<div class="col-md-3 text-center"
+						data-th-each="subcat : ${subcategoryList}">
+						<div class="brands" style="margin: 10px;">
+							<a th:href="@{'/ads/'+${subcat.subcategoryid}}"> <img
+								th:src="@{'/subcategories/' + ${subcat.imagepath}}"
+								width="130px" alt="01" />
+							</a>
+							<div class="coup-tit">
+								<a th:text="${subcat.subcategoryname}"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<!-- online ads -->
+
+</body>
+</html>

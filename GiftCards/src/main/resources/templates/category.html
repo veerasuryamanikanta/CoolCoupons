@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="common/adminheader :: common-admin-links" />
+
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+
+		<header th:replace="common/adminnavbar :: common-admin-navbar"></header>
+
+		<aside th:replace="common/adminsidebar :: common-admin-sidebar"></aside>
+
+		<div class="content-wrapper">
+			<!--  Header Section-->
+			<section th:replace="common/topheader :: common-admin-topheader"></section>
+			<!--  End of Header Section-->
+
+			<!--  Body -->
+			<section th:replace="pages/categoryform :: page-admin-categoryform"></section>
+			<!--  End of Body -->
+
+		</div>
+
+	</div>
+
+	<div th:replace="common/adminfooter :: common-admin-jslinks"></div>
+
+</body>
+</html>

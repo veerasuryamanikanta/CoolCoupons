@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<body>
+
+	<!-- online ads -->
+	<div th:fragment="body-addinnerpage">
+
+		<div class="top-brands" id="topcoupons">
+			<div class="container">
+				<div>&nbsp;</div>
+
+
+				<h3>Ad Details</h3>
+
+				<div class="col-md-12 w3ls_mobiles_grid_right">
+
+					<div class="col-md-6 w3ls_mobiles_grid_right_left">
+						<div class="w3ls_mobiles_grid_right_grid1">
+							<img src="/myads/bhanutravels.jpeg" alt=" "
+								class="img-responsive" />
+							<div class="w3ls_mobiles_grid_right_grid1_pos1"></div>
+						</div>
+					</div>
+
+					<div class="col-md-6 w3ls_mobiles_grid_right_left brands">
+						<div>&nbsp;</div>
+						<h2 th:text="${ads.adtitle}" align="center"></h2>
+						<div>&nbsp;</div>
+						<h4 th:text="${ads.contact_name}" align="left"
+							style="padding-left: 10px;"></h4>
+						<div>&nbsp;</div>
+						<h4 th:text="${ads.contact_number}" align="left"
+							style="padding-left: 10px;"></h4>
+						<div>&nbsp;</div>
+						<h4 th:text="${ads.contact_address}" align="left"
+							style="padding-left: 10px;"></h4>
+						<div>&nbsp;</div>
+						<h4 th:text="${ads.adoffer}" align="left"
+							style="padding-left: 10px;"></h4>
+						<div>&nbsp;</div>
+
+						<div class="product-part01">
+
+							<h3>Product Description</h3>
+
+							<div class="descri-cont" style="padding-left: 10px;">With cash back offers, you get big
+								rewards when you meet a particular offer's spending goal. And
+								you have freedom to do it your way. You have the flexibility to
+								purchase the required items all at once or across multiple
+								shopping trips at participating stores. You can also choose to
+								purchase all at one store</div>
+
+						</div>
+
+						<div class="product-part01">
+
+							<h3>Terms And Condition</h3>
+
+							<div class="descri-cont" style="padding-left: 10px;">With cash back offers, you get big
+								rewards when you meet a particular offer's spending goal. And
+								you have freedom to do it your way. You have the flexibility to
+								purchase the required items all at once or across multiple
+								shopping trips at partwant to use and make sure your
+								loyalty cards are linked for the stores where you’ll make your
+								purchases. Once you reach your spending goal, your cash will be
+								paid to your PayPal account</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+	<!-- online ads -->
+
+</body>
+</html>

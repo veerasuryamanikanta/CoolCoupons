@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<body>
+
+	<!-- online ads -->
+	<div th:fragment="body-publishads">
+
+		<div class="top-brands" id="topcoupons">
+			<div class="container">
+				<div>&nbsp;</div>
+				<div>&nbsp;</div>
+
+				<h3>Ad Details</h3>
+				<div class="brands-cont">
+					<div class="col-md-3 text-center" data-th-each="ads : ${adsList}">
+						<div class="brands" style="margin: 10px;">
+
+							<a th:href="@{'/addescription/'+${ads.adid}}"> <img
+								th:src="@{'/myads/'+ ${ads.imagepath}}" width="200px" alt="01" />
+							</a>
+
+							<div class="btn-block btn-view">
+								<a th:href="@{'/addescription/'+${ads.adid}}"
+									th:text="${ads.adtitle}"></a>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<!-- online ads -->
+
+</body>
+</html>

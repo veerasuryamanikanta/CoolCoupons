@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+<body>
+	<section th:fragment="page-admin-stateform" class="content">
+
+		<div class="row">
+
+			<!-- Form -->
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Add State</h3>
+					</div>
+
+					<form role="form" method="post">
+						<div class="box-body">
+
+							<div class="form-group">
+								<label>Select Country</label> <select
+									class="form-control select2" style="width: 100%;"
+									name="countryid">
+									<option data-th-each="countries : ${countriesList}"
+										th:text="${countries.countryname}"
+										th:value="${countries.countryid}" />
+								</select>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputEmail1">State Name</label> <input
+									type="text" class="form-control" name="statename"
+									th:value="${statedto.statename}" required="required" />
+							</div>
+						</div>
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</form>
+
+
+				</div>
+			</div>
+			<!-- End Of Form -->
+
+			<!-- List -->
+			<div class="col-md-6 col-sm-6 col-xs-12">
+
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">List Of States</h3>
+					</div>
+
+					<div class="box-body table-responsive no-padding">
+						<table class="table table-hover">
+							<tr>
+								<th>#</th>
+								<th>Name</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>AP</td>
+								<td><a th:href="@{/}"><i class="fa fa-edit "></i></a></td>
+								<td><a th:href="@{/}"><i class="fa fa-trash"></i></a></td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+
+
+			</div>
+			<!-- End Of List -->
+
+		</div>
+
+	</section>
+
+
+
+</body>
+
+</html>
