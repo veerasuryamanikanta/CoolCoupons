@@ -2602,7 +2602,7 @@ li.list-group-item1 {
 
 .input-group {
 	margin-left: 20px;
-	margin-bottom: 20px;
+	
 }
 
 .in-gp-tl {
@@ -2655,7 +2655,7 @@ li.list-group-item1 {
 }
 
 .input-group {
-	margin-bottom: 20px;
+	
 }
 
 .codes .row {
@@ -2876,7 +2876,10 @@ li.list-group-item1 {
 }
 
 .input-group {
-	margin-bottom: 20px;
+	
+	
+    background: #fff;
+    padding: 4px 2px;
 }
 
 .codes .row {
@@ -4297,9 +4300,16 @@ td.invert-image a img {
 		text-align: left;
 	}
 	.mobile-search {
-		border-top: #676ed1 1px solid;
+		border-top: #fff 1px solid;
 		margin-top: 5px;
+		padding-top: 3px;
+		background: #fff;
+		margin-bottom: 20px;
 	}
+	
+	.btn-nobor {
+    border: none;
+}
 	.search-container {
 		background: #fff;
 		border-radius: 2px;
@@ -5530,7 +5540,19 @@ td.invert-image a img {
 
 @media ( max-width :320px) {
 	.header {
-		padding: 0.4em 0 0;
+		padding: 0.0em 0 0;
+	}
+	.input-group {
+    
+    background: #fff;
+    padding: 4px 2px;
+	}
+	.btn-nobor{
+	border: none;
+	}
+	.input-group{
+	margin-left: 0px;
+	
 	}
 	label.icon-search span {
 		font-size: 0.89em;
