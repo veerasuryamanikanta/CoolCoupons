@@ -44,6 +44,9 @@ public class ads {
 
 	@Column(name = "adoffer", nullable = false)
 	private String adoffer;
+	
+	@Column(name = "desc_offer", nullable = false)
+	private String desc_offer;
 
 	@Column(name = "imagepath")
 	private String imagepath;
@@ -83,6 +86,14 @@ public class ads {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "subcategoryid")
 	private subcategory cc_subcategory;
+
+	public String getDesc_offer() {
+		return desc_offer;
+	}
+
+	public void setDesc_offer(String desc_offer) {
+		this.desc_offer = desc_offer;
+	}
 
 	public Long getAdid() {
 		return adid;

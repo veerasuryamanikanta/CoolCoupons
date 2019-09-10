@@ -13,12 +13,9 @@ public class adsDto {
 	private String contact_name;
 	private String contact_number;
 	private String contact_email;
-	public String getContact_email() {
-		return contact_email;
-	}
-	public void setContact_email(String contact_email) {
-		this.contact_email = contact_email;
-	}
+	private String desc_offer;
+	
+	
 	private String imagePath;
 	private MultipartFile image;
 	private byte[] photo;
@@ -27,7 +24,18 @@ public class adsDto {
 	private Long modifiedBy;
 	private String modifiedDate;
 	private String adoffer;
-	
+	public String getDesc_offer() {
+		return desc_offer;
+	}
+	public void setDesc_offer(String desc_offer) {
+		this.desc_offer = desc_offer;
+	}
+	public String getContact_email() {
+		return contact_email;
+	}
+	public void setContact_email(String contact_email) {
+		this.contact_email = contact_email;
+	}
 	public String getAdoffer() {
 		return adoffer;
 	}
