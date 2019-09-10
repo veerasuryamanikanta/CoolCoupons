@@ -69,6 +69,13 @@
 						<ul class="nav navbar-nav">
 							<li><a href="#topcoupons" class="scroll">All Categories</a></li>
 							<li><a href="#aboutus" class="scroll">About Us</a></li>
+							<li><a href="#vm" class="scroll">Values &amp;
+									Mission</a></li>
+							<li><a href="#od" class="scroll">online advertising</a></li>
+							<li><a href="#fpi" class="scroll">Full Profile Page Includes</a></li>
+							<li><a href="#cci" class="scroll">Coupon Content Includes</a></li>
+							<li><a href="#aboutus" class="scroll">Every booking also includes</a></li>
+							<li><a href="#ps" class="scroll">Pricing Summary</a></li>
 							<li><a href="#contactus" class="scroll">Contact Us</a></li>
 						</ul>
 					</div>
@@ -91,7 +98,8 @@
 								</div>
 								<div class="input-group-btn">
 
-									<button type="button" class="btn btn-default dropdown-toggle btn-nobor"
+									<button type="button"
+										class="btn btn-default dropdown-toggle btn-nobor"
 										data-toggle="dropdown">
 										<small><span class="input-group-btn"> <i
 												class="fa fa-map-marker location-icon"></i>
@@ -101,8 +109,7 @@
 									<ul class="dropdown-menu" id="mnu-category">
 										<li data-th-each="citi : ${cityList}"><a
 											style="color: green; font-size: 17px;"
-											th:href="@{'/'+${citi.cityid}}"
-											th:text="${citi.cityname}"></a></li>
+											th:href="@{'/'+${citi.cityid}}" th:text="${citi.cityname}"></a></li>
 									</ul>
 								</div>
 							</div>
