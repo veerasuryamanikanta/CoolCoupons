@@ -12,6 +12,13 @@ public class adsDto {
 	private String contact_address;
 	private String contact_name;
 	private String contact_number;
+	private String contact_email;
+	public String getContact_email() {
+		return contact_email;
+	}
+	public void setContact_email(String contact_email) {
+		this.contact_email = contact_email;
+	}
 	private String imagePath;
 	private MultipartFile image;
 	private byte[] photo;

@@ -36,20 +36,14 @@ public class ads {
 	@Column(name = "contact_number", nullable = false)
 	private String contact_number;
 
+	@Column(name = "contact_email", nullable = false)
+	private String contact_email;
+
 	@Column(name = "contact_address", nullable = false)
 	private String contact_address;
 
 	@Column(name = "adoffer", nullable = false)
 	private String adoffer;
-
-	
-	public String getAdoffer() {
-		return adoffer;
-	}
-
-	public void setAdoffer(String adoffer) {
-		this.adoffer = adoffer;
-	}
 
 	@Column(name = "imagepath")
 	private String imagepath;
@@ -216,6 +210,22 @@ public class ads {
 
 	public void setCc_subcategory(subcategory cc_subcategory) {
 		this.cc_subcategory = cc_subcategory;
+	}
+
+	public String getAdoffer() {
+		return adoffer;
+	}
+
+	public void setAdoffer(String adoffer) {
+		this.adoffer = adoffer;
+	}
+
+	public String getContact_email() {
+		return contact_email;
+	}
+
+	public void setContact_email(String contact_email) {
+		this.contact_email = contact_email;
 	}
 
 }
