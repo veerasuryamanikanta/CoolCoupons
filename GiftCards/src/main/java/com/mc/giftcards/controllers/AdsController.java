@@ -45,9 +45,11 @@ public class AdsController {
 		List<city> cityList = cityService.findAll();
 		List<category> categoryList = categoryService.findAll();
 		List<subcategory> subcategoryList = subCategoryService.findAll();
+		List<ads> adsList = adService.findAll();
 		model.addAttribute("cityList", cityList);
 		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("subcategoryList", subcategoryList);
+		model.addAttribute("adsList", adsList);
 		adsDto adsdto = new adsDto();
 		model.addAttribute("adsdto", adsdto);
 		return "ads";
@@ -61,24 +63,21 @@ public class AdsController {
 		try {
 			byte[] bytes = image_upload.getBytes();
 			ads.setPhoto(bytes.toString());
-			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(
-					"src/main/resources/static/myads/" + image_upload.getOriginalFilename())));
+			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(
+					new File("src/main/resources/static/myads/" + image_upload.getOriginalFilename())));
 			stream.write(bytes);
 			stream.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		ads.setImagepath(image_upload.getOriginalFilename());
 		ads.setPhoto(image_upload.getBytes().toString());
 		ads.setCc_category(categoryService.findOne(adsDTO.getCategoryid()));
 		ads.setCc_subcategory(subCategoryService.findOne(adsDTO.getSubcategoryid()));
 		ads.setCc_city(cityService.findOne(adsDTO.getCityid()));
 		adService.save(ads);
-
-		adsDto adsdto = new adsDto();
-		model.addAttribute("adsdto", adsdto);
-		return "ads";
+		return "redirect:/newad";
 	}
 
 }

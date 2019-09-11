@@ -48,17 +48,14 @@
 						<table class="table table-hover">
 							<tr>
 								<th>#</th>
-								<th>Image</th>
 								<th>Name</th>
-								<th>Edit</th>
-								<th>Delete</th>
+								<!-- <th>Delete</th> -->
 							</tr>
-							<tr>
-								<td>1</td>
-								<td><a th:href="@{/}"><i class="fa fa-trash"></i></a></td>
-								<td>India</td>
-								<td><a th:href="@{/}"><i class="fa fa-edit "></i></a></td>
-								<td><a th:href="@{/}"><i class="fa fa-trash"></i></a></td>
+							<tr data-th-each="catg : ${categoryList}">
+								<td th:text="${catg.categoryid}"></td>
+								<td th:text="${catg.categoryname}"></td>
+								<!-- <td><a th:href="@{'/deleteCategory/'+${catg.categoryid}}"><i
+										class="fa fa-trash"></i></a></td> -->
 							</tr>
 						</table>
 					</div>

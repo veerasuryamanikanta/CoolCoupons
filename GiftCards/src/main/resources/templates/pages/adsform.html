@@ -63,34 +63,34 @@
 									type="text" class="form-control" name="contact_number"
 									th:value="${adsdto.contact_number}" required="required" />
 							</div>
-							
+
 							<div class="form-group">
-								<label for="exampleInputEmail1">Email</label> <input
-									type="text" class="form-control" name="contact_email"
+								<label for="exampleInputEmail1">Email</label> <input type="text"
+									class="form-control" name="contact_email"
 									th:value="${adsdto.contact_email}" required="required" />
 							</div>
-							
-							
+
+
 
 							<div class="form-group">
 								<label for="exampleInputEmail1">Address</label> <input
 									type="text" class="form-control" name="contact_address"
 									th:value="${adsdto.contact_address}" required="required" />
 							</div>
-							
+
 							<div class="form-group">
 								<label for="exampleInputEmail1">Enter Offer</label> <input
 									type="text" class="form-control" name="adoffer"
-									th:value="${adsdto.adoffer}" required="required"/>
+									th:value="${adsdto.adoffer}" required="required" />
 							</div>
-							
+
 							<div class="form-group">
 								<label for="exampleInputEmail1">Offer Description</label> <input
 									type="text" class="form-control" name="desc_offer"
-									th:value="${adsdto.desc_offer}" required="required"/>
+									th:value="${adsdto.desc_offer}" required="required" />
 							</div>
-							
-							
+
+
 
 							<div class="form-group">
 								<label for="exampleInputFile">File input</label> <input
@@ -120,17 +120,14 @@
 						<table class="table table-hover">
 							<tr>
 								<th>#</th>
-								<th>Image</th>
 								<th>Name</th>
-								<th>Edit</th>
-								<th>Delete</th>
+								<!-- <th>Delete</th> -->
 							</tr>
-							<tr>
-								<td>1</td>
-								<td><a th:href="@{/}"><i class="fa fa-trash"></i></a></td>
-								<td>India</td>
-								<td><a th:href="@{/}"><i class="fa fa-edit "></i></a></td>
-								<td><a th:href="@{/}"><i class="fa fa-trash"></i></a></td>
+							<tr data-th-each="ads : ${adsList}">
+								<td th:text="${ads.adid}"></td>
+								<td th:text="${ads.adtitle}"></td>
+								<!-- <td><a th:href="@{'/deleteSubcategory/'+${subcatg.subcategoryid}}"><i
+										class="fa fa-trash"></i></a></td> -->
 							</tr>
 						</table>
 					</div>

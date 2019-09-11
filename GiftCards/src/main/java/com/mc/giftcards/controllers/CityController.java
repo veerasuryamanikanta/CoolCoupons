@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,8 +35,10 @@ public class CityController {
 	public String getCityNavigator(Model model) {
 		List<country> countriesList = countryService.findAll();
 		List<state> statesList = stateService.findAll();
+		List<city> cityList = cityService.findAll();
 		model.addAttribute("countriesList", countriesList);
 		model.addAttribute("statesList", statesList);
+		model.addAttribute("cityList", cityList);
 		cityDto cityDto = new cityDto();
 		model.addAttribute("cityDto", cityDto);
 		return "city";
@@ -47,14 +50,14 @@ public class CityController {
 		BeanUtils.copyProperties(cityDTO, city);
 		city.setCc_state(stateService.findOne(cityDTO.getStateid()));
 		cityService.save(city);
-		List<country> countriesList = countryService.findAll();
-		List<state> statesList = stateService.findAll();
-		model.addAttribute("countriesList", countriesList);
-		model.addAttribute("statesList", statesList);
-		cityDto cityDto = new cityDto();
-		model.addAttribute("cityDto", cityDto);
-		return "city";
+		return "redirect:/addcity";
 
+	}
+	
+	@RequestMapping(value = "/deletecity/{cityid}", method = RequestMethod.GET)
+	public String deleteState(Model model, @PathVariable("cityid") Long cityid) {
+		cityService.removeOne(cityid);
+		return "redirect:/addcity";
 	}
 
 }

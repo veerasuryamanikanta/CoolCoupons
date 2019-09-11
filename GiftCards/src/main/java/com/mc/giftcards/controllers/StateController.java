@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -28,7 +29,9 @@ public class StateController {
 	public String getStateNavigator(Model model) {
 		stateDto statedto = new stateDto();
 		List<country> countriesList = countryService.findAll();
+		List<state> statesList = stateService.findAll();
 		model.addAttribute("countriesList", countriesList);
+		model.addAttribute("statesList", statesList);
 		model.addAttribute("statedto", statedto);
 		return "state";
 
@@ -40,12 +43,14 @@ public class StateController {
 		BeanUtils.copyProperties(stateDTO, state);
 		state.setCc_country(countryService.findOne(stateDTO.getCountryid()));
 		stateService.save(state);
-		List<country> countriesList = countryService.findAll();
-		model.addAttribute("countriesList", countriesList);
-		stateDto statedto = new stateDto();
-		model.addAttribute("statedto", statedto);
-		return "state";
+		return "redirect:/addstate";
 
+	}
+
+	@RequestMapping(value = "/deleteState/{stateid}", method = RequestMethod.GET)
+	public String deleteState(Model model, @PathVariable("stateid") Long stateid) {
+		stateService.removeOne(stateid);
+		return "redirect:/addstate";
 	}
 
 }

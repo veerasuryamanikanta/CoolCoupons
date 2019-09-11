@@ -12,5 +12,5 @@ public interface AdRepository extends CrudRepository<ads, Long> {
 
 	@Query(nativeQuery = true, value = "select * from cc_ads where subcategoryid =?1")
 	List<ads> findBySubCategoryId(@Param("subcategoryid") Long subcategoryid);
-
+	
 }

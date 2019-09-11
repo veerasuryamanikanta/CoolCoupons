@@ -11,7 +11,7 @@ public interface StateService {
 	List<state> findAll();
 
 	state findOne(Long id);
-
+	
 	void removeOne(Long id);
 
 }

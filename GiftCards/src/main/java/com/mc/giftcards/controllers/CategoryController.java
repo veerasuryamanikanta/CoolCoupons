@@ -1,12 +1,14 @@
 package com.mc.giftcards.controllers;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,8 +25,10 @@ public class CategoryController {
 
 	@RequestMapping(value = "/addcategory", method = RequestMethod.GET)
 	public String getCategoryNavigator(Model model) {
+		List<category> categoryList = categoryService.findAll();
 		categoryDto categorydto = new categoryDto();
 		model.addAttribute("categorydto", categorydto);
+		model.addAttribute("categoryList", categoryList);
 		return "category";
 
 	}
@@ -37,10 +41,15 @@ public class CategoryController {
 		category.setImagepath(image_upload.getOriginalFilename());
 		category.setPhoto(image_upload.getBytes().toString());
 		categoryService.save(category);
-		categoryDto categorydto = new categoryDto();
-		model.addAttribute("categorydto", categorydto);
-		return "category";
 
+		return "redirect:/addcategory";
+
+	}
+
+	@RequestMapping(value = "/deleteCategory/{categoryid}", method = RequestMethod.GET)
+	public String deleteLocation(Model model, @PathVariable("categoryid") Long categoryid) {
+		categoryService.removeOne(categoryid);
+		return "redirect:/addcategory";
 	}
 
 }

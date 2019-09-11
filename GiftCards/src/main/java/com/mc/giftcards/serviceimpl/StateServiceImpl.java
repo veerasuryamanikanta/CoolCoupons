@@ -39,4 +39,6 @@ public class StateServiceImpl implements StateService {
 		staterepository.delete(id);
 	}
 
+	
+
 }

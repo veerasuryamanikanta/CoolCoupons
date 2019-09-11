@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -39,8 +40,10 @@ public class SubCategoryController {
 	public String getSubCategoryNavigator(Model model) {
 		List<category> categoryList = categoryService.findAll();
 		List<city> cityList = cityService.findAll();
+		List<subcategory> subcategoryList = subCategoryService.findAll();
 		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("cityList", cityList);
+		model.addAttribute("subcategoryList", subcategoryList);
 		subCategoryDto subcategorydto = new subCategoryDto();
 		model.addAttribute("subcategorydto", subcategorydto);
 		return "subcategory";
@@ -57,8 +60,8 @@ public class SubCategoryController {
 		try {
 			byte[] bytes = image_upload.getBytes();
 			subcategory.setPhoto(bytes.toString());
-			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(
-					"src/main/resources/static/subcategories/" + image_upload.getOriginalFilename())));
+			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(
+					new File("src/main/resources/static/subcategories/" + image_upload.getOriginalFilename())));
 			stream.write(bytes);
 			stream.close();
 		} catch (Exception e) {
@@ -69,15 +72,15 @@ public class SubCategoryController {
 		subcategory.setCc_category(categoryService.findOne(subCategoryDTO.getCategoryid()));
 		subcategory.setCc_city(cityService.findOne(subCategoryDTO.getCityid()));
 		subCategoryService.save(subcategory);
-
-		List<category> categoryList = categoryService.findAll();
-		List<city> cityList = cityService.findAll();
-		model.addAttribute("categoryList", categoryList);
-		model.addAttribute("cityList", cityList);
-		subCategoryDto subcategorydto = new subCategoryDto();
-		model.addAttribute("subcategorydto", subcategorydto);
-		return "subcategory";
+		return "redirect:/addsubcategory";
 
 	}
+	
+	@RequestMapping(value = "/deleteSubcategory/{subcategoryid}", method = RequestMethod.GET)
+	public String deleteCountry(Model model, @PathVariable("subcategoryid") Long subcategoryid) {
+		subCategoryService.removeOne(subcategoryid);
+		return "redirect:/addsubcategory";
+	}
+	
 
 }

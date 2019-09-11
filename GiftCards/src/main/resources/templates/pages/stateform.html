@@ -55,14 +55,13 @@
 							<tr>
 								<th>#</th>
 								<th>Name</th>
-								<th>Edit</th>
-								<th>Delete</th>
+								<!-- <th>Delete</th> -->
 							</tr>
-							<tr>
-								<td>1</td>
-								<td>AP</td>
-								<td><a th:href="@{/}"><i class="fa fa-edit "></i></a></td>
-								<td><a th:href="@{/}"><i class="fa fa-trash"></i></a></td>
+							<tr data-th-each="states : ${statesList}">
+								<td th:text="${states.stateid}"></td>
+								<td th:text="${states.statename}"></td>
+								<!-- <td><a th:href="@{'/deleteState/'+${states.stateid}}"><i
+										class="fa fa-trash"></i></a></td> -->
 							</tr>
 						</table>
 					</div>

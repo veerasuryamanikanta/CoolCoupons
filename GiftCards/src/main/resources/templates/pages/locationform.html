@@ -72,14 +72,13 @@
 							<tr>
 								<th>#</th>
 								<th>Name</th>
-								<th>Edit</th>
-								<th>Delete</th>
+							<!-- 	<th>Delete</th> -->
 							</tr>
-							<tr>
-								<td>1</td>
-								<td>HYD</td>
-								<td><a th:href="@{/}"><i class="fa fa-edit "></i></a></td>
-								<td><a th:href="@{/}"><i class="fa fa-trash"></i></a></td>
+							<tr data-th-each="loc : ${locationList}">
+								<td th:text="${loc.locationid}"></td>
+								<td th:text="${loc.locationname}"></td>
+							<!-- 	<td><a th:href="@{'/deleteLocation/'+${loc.locationid}}"><i
+										class="fa fa-trash"></i></a></td> -->
 							</tr>
 						</table>
 					</div>

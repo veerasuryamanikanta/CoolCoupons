@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -40,9 +41,11 @@ public class LocationController {
 		List<country> countriesList = countryService.findAll();
 		List<state> statesList = stateService.findAll();
 		List<city> cityList = cityService.findAll();
+		List<location> locationList = locationService.findAll();
 		model.addAttribute("countriesList", countriesList);
 		model.addAttribute("statesList", statesList);
 		model.addAttribute("cityList", cityList);
+		model.addAttribute("locationList", locationList);
 		locationDto locationdto = new locationDto();
 		model.addAttribute("locationdto", locationdto);
 		return "location";
@@ -55,16 +58,14 @@ public class LocationController {
 		BeanUtils.copyProperties(locationDTO, location);
 		location.setCc_city(cityService.findOne(locationDTO.getCityid()));
 		locationService.save(location);
-		List<country> countriesList = countryService.findAll();
-		List<state> statesList = stateService.findAll();
-		List<city> cityList = cityService.findAll();
-		model.addAttribute("countriesList", countriesList);
-		model.addAttribute("statesList", statesList);
-		model.addAttribute("cityList", cityList);
-		locationDto locationdto = new locationDto();
-		model.addAttribute("locationdto", locationdto);
-		return "location";
+		return "redirect:/addlocation";
 
+	}
+
+	@RequestMapping(value = "/deleteLocation/{locationid}", method = RequestMethod.GET)
+	public String deleteLocation(Model model, @PathVariable("locationid") Long locationid) {
+		locationService.removeOne(locationid);
+		return "redirect:/addlocation";
 	}
 
 }
