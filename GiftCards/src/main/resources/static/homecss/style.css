@@ -5000,7 +5000,7 @@ td.invert-image a img {
 	.special-deals h2:after, .new-products h3:after, .top-brands h3:after,
 		.w3l_related_products h3:after, .team h3:after, .mail h3:after, h3.agileits-title:after
 		{
-		right: -16%;
+		right: 0%;
 		width: 20%;
 	}
 	.w3agile_special_deals_grids, .agileinfo_new_products_grids {
@@ -5308,7 +5308,7 @@ td.invert-image a img {
 	.special-deals h2:before, .new-products h3:before, .top-brands h3:before,
 		.w3l_related_products h3:before, .team h3:before, .mail h3:before, h3.agileits-title:before
 		{
-		left: -16%;
+		left: 0%;
 	}
 	.w3agile_newsletter_right input[type="submit"] {
 		background-position: 14px -65px;
