@@ -29,7 +29,7 @@ public class country {
 	@Column(name = "countryid", nullable = false, updatable = false)
 	private Long countryid;
 
-	@Column(name = "countryname", nullable = false)
+	@Column(name = "countryname", nullable = false,unique=true)
 	private String countryname;
 
 	@Column(name = "imagepath")

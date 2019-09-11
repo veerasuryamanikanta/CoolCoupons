@@ -9,43 +9,39 @@
 		<!-- desktop header -->
 		<div class="header" id="home1">
 			<div class="container hidden-xs mob-640">
+
 				<div class="w3l_logo pull-left">
+
 					<h2 style="color: black; align: center; margin-top: 10px">CoolCoupons</h2>
-					<p style="color: red; align: center; margin-top: 3px; font-size:12px;">A RUPEE SAVED IS A RUPEE EARNED</p>
-				<!-- <img src="/images/logo.jpg" alt="logo" width="240" /> -->
+					<p
+						style="color: red; align: center; margin-top: 3px; font-size: 12px;">A
+						RUPEE SAVED IS A RUPEE EARNED</p>
+				</div>
 
-					</div>
+				<div class="w3l_logo pull-right">
 
-				<div class="pull-right">
-					<!-- <form role="form" method="post" th:action="@{/subcategories}"> -->
+					<label class="btn  dropdown-toggle"
+						style="margin-left: 40px; color: #13ad16">search for
+						coolcoupons.in ..</label>
 					<form role="form" method="get" th:action="@{/}">
 						<div class="des-location">
-
 							<div class="input-group">
-								<div class="input-group-btn">
-
+								<div>
 									<button type="button" class="btn btn-default dropdown-toggle"
-										data-toggle="dropdown">
+										data-toggle="dropdown" style="width: 250px;">
 										<span id="srch-category"> SELECT YOUR CITY. </span> <span
 											class="caret"></span>
 									</button>
-									<ul class="dropdown-menu" id="mnu-category">
+									<ul class="dropdown-menu btn-nobor" id="mnu-category"
+										style="width: 250px; padding: 10px;">
 										<li data-th-each="citi : ${cityList}"><a
 											th:href="@{'/'+${citi.cityid}}" th:text="${citi.cityname}"></a></li>
 									</ul>
 								</div>
-								<input type="hidden" id="txt-category" /> <input type="text"
-									id="txt-search" class="form-control"
-									placeholder="Search for..." /> <span class="input-group-btn">
-									<button id="btn-search" type="submit" class="btn btn-default">
-										<span class="glyphicon glyphicon-search"></span>
-									</button>
-								</span>
 							</div>
 						</div>
 					</form>
 				</div>
-
 			</div>
 		</div>
 		<!-- end of desktop header -->
@@ -57,7 +53,9 @@
 					<div class="m-logo hidden-md hidden-lg ">
 						<!-- <img src="images/mlogo.png" width="140" alt="logo" /> -->
 						<h4 style="color: white; align: center; margin-top: 10px">CoolCoupons</h4>
-						<p style="color: yellow; align: center; margin-top: 3px; font-size:8px;">A RUPEE SAVED IS A RUPEE EARNED</p>
+						<p
+							style="color: yellow; align: center; margin-top: 3px; font-size: 8px;">A
+							RUPEE SAVED IS A RUPEE EARNED</p>
 					</div>
 
 					<div class="navbar-header nav_2 ">
@@ -73,10 +71,10 @@
 						<ul class="nav navbar-nav">
 							<li><a href="#topcoupons" class="scroll">Categories</a></li>
 							<li><a href="#aboutus" class="scroll">About Us</a></li>
-							<li><a href="#vm" class="scroll">Values &amp;
-									Mission</a></li>
+							<li><a href="#vm" class="scroll">Values &amp; Mission</a></li>
 							<li><a href="#oa" class="scroll">online advertising</a></li>
-							<li><a href="#cca" class="scroll">coolcoupons book advertising</a></li>
+							<li><a href="#cca" class="scroll">coolcoupons book
+									advertising</a></li>
 							<li><a href="#contactus" class="scroll">Contact Us</a></li>
 						</ul>
 					</div>
