@@ -15,6 +15,15 @@
 
 					<form role="form" method="post" enctype="multipart/form-data">
 						<div class="box-body">
+
+							<div class="form-group">
+								<label>Select City</label> <select class="form-control select2"
+									style="width: 100%;" name="cityid">
+									<option data-th-each="city : ${cityList}"
+										th:text="${city.cityname}" th:value="${city.cityid}" />
+								</select>
+							</div>
+
 							<div class="form-group">
 								<label for="exampleInputEmail1">Category Name</label> <input
 									type="text" class="form-control" name="categoryname"
@@ -49,13 +58,13 @@
 							<tr>
 								<th>#</th>
 								<th>Name</th>
-								<!-- <th>Delete</th> -->
+								<th>Delete</th>
 							</tr>
 							<tr data-th-each="catg : ${categoryList}">
 								<td th:text="${catg.categoryid}"></td>
 								<td th:text="${catg.categoryname}"></td>
-								<!-- <td><a th:href="@{'/deleteCategory/'+${catg.categoryid}}"><i
-										class="fa fa-trash"></i></a></td> -->
+								<td><a th:href="@{'/deleteCategory/'+${catg.categoryid}}"><i
+										class="fa fa-trash"></i></a></td>
 							</tr>
 						</table>
 					</div>

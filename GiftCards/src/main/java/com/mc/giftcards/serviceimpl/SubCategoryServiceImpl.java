@@ -45,4 +45,10 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 		return subcategoryrepository.findByCityId(cityid);
 	}
 
+	@Override
+	public List<subcategory> findByCategory(Long categoryid) {
+		// TODO Auto-generated method stub
+		return subcategoryrepository.findByCategoryId(categoryid);
+	}
+
 }

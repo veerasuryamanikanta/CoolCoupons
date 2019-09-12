@@ -65,13 +65,13 @@
 							<tr>
 								<th>#</th>
 								<th>Name</th>
-								<!-- <th>Delete</th> -->
+								 <th>Delete</th> 
 							</tr>
 							<tr data-th-each="cty : ${cityList}">
 								<td th:text="${cty.cityid}"></td>
 								<td th:text="${cty.cityname}"></td>
-								<!-- <td><a th:href="@{'/deletecity/'+${cty.cityid}}"><i
-										class="fa fa-trash"></i></a></td> -->
+								 <td><a th:href="@{'/deletecity/'+${cty.cityid}}"><i
+										class="fa fa-trash"></i></a></td>
 							</tr>
 						</table>
 					</div>

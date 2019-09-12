@@ -27,7 +27,7 @@ public class ads {
 	@Column(name = "adid", nullable = false, updatable = false)
 	private Long adid;
 
-	@Column(name = "adtitle", nullable = false)
+	@Column(name = "adtitle", nullable = false, unique=true)
 	private String adtitle;
 
 	@Column(name = "contact_name", nullable = false)
@@ -75,15 +75,15 @@ public class ads {
 	@Column(name = "isactive", columnDefinition = "boolean default false")
 	private boolean isactive;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "cityid")
 	private city cc_city;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "categoryid")
 	private category cc_category;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "subcategoryid")
 	private subcategory cc_subcategory;
 

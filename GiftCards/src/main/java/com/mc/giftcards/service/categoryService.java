@@ -13,5 +13,6 @@ public interface categoryService {
 	category findOne(Long id);
 
 	void removeOne(Long id);
-
+	
+	List<category> findByCity(Long cityid);
 }

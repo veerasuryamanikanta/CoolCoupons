@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>CoolCoupons</title>
+
+<link th:href="@{https://fonts.googleapis.com/css?family=Hind:400,700}"
+	rel="stylesheet" />
+
+<link type="text/css" rel="stylesheet"
+	th:href="@{/mycss/bootstrap.min.css}" />
+
+<link type="text/css" rel="stylesheet" th:href="@{/mycss/slick.css}" />
+
+<link type="text/css" rel="stylesheet"
+	th:href="@{/mycss/slick-theme.css}" />
+
+<link type="text/css" rel="stylesheet"
+	th:href="@{/mycss/nouislider.min.css}" />
+
+<link rel="stylesheet" th:href="@{/mycss/font-awesome.min.css}" />
+
+<link type="text/css" rel="stylesheet" th:href="@{/mycss/style.css}" />
+
+</head>
+
+<body>
+	<header>
+		<!-- header -->
+		<div id="header">
+			<div class="container">
+				<div>
+
+					<li class="nav-toggle"><button
+							class="nav-toggle-btn main-btn icon-btn">
+							<i class="fa fa-bars"></i>
+						</button></li>
+					<div class="header-logo">
+						<a class="logo" href="#"
+							style="color: #000; font-family: serif; font-size: 35px; padding-left: 10px;">
+							coolcoupons </a>
+					</div>
+
+
+					<div class="header-search">
+
+						<form>
+							<input class="input search-input" type="text"
+								placeholder="  search" />
+
+							<button type="button"
+								class="btn btn-default dropdown-toggle input search-categories"
+								data-toggle="dropdown" style="width: 250px;">
+								<span id="srch-category"> SELECT YOUR CITY </span> <span
+									class="caret"></span>
+							</button>
+							<ul class="dropdown-menu " id="mnu-category"
+								style="width: 250px; padding: 10px;">
+								<li data-th-each="citi : ${cityList}"><a
+									th:href="@{'/'+${citi.cityid}}"
+									th:text="${citi.cityname}"></a></li>
+							</ul>
+
+							<button class="search-btn">
+								<i class="fa fa-search"></i>
+							</button>
+						</form>
+
+					</div>
+
+				</div>
+
+
+			</div>
+		</div>
+	</header>
+
+
+	<div id="navigation">
+		<div class="container">
+			<div id="responsive-nav">
+
+				<div class="category-nav">
+					<span class="category-header">Categories <i
+						class="fa fa-list"></i></span>
+					<ul class="category-list">
+						<li data-th-each="catg : ${categoryList}"><a
+							th:href="@{'/categories/'+${catg.categoryid}+'/'+${catg.categoryid}}"
+							th:text="${catg.categoryname}"></a></li>
+						<li><a href="#">View All</a></li>
+					</ul>
+				</div>
+
+				<div class="menu-nav">
+					<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+					<ul class="menu-list">
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Values &amp; Mission</a></li>
+						<li><a href="#">online advertising</a></li>
+						<li><a href="#">coupon book advertising</a></li>
+						<li><a href="#">contact us</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<div id="home">
+		<div class="container">
+			<div class="home-wrap">
+
+				<div id="home-slick">
+					<div class="banner banner-1">
+						<img th:src="@{/img/banner01.jpg}" alt="" />
+					</div>
+					<div class="banner banner-1">
+						<img th:src="@{/img/banner02.jpg}" alt="" />
+					</div>
+					<div class="banner banner-1">
+						<img th:src="@{/img/banner02.jpg}" alt="" />
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- section -->
+	<div class="section">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-12">
+					<div class="section-title">
+						<h2 class="title">All Sub Categories</h2>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-6 col-xs-6"
+					data-th-each="subcatg : ${subcategoryList}">
+					<div class="product product-single">
+						<div class="product-thumb">
+							<a class="banner banner-1" th:href="@{'/ads/'+${subcatg.subcategoryid}}"> <img
+								th:src="@{'/subcategories/'+${subcatg.imagepath}}" />
+								<button class="main-btn quick-view">
+									<i class="fa fa-search-plus"></i> Quick view
+								</button>
+							</a>
+						</div>
+						<div class="product-body">
+							<h2 class="product-name">
+								<a href="#" th:text="${subcatg.subcategoryname}"></a>
+							</h2>
+						</div>
+						<div class="product-btns">
+							<button class="primary-btn add-to-cart">
+								<i class="fa fa-shopping-cart"></i> VIEW
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- FOOTER -->
+	<footer id="footer" class="section section-grey">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- footer widget -->
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="footer">
+						<!-- footer logo -->
+						<div class="footer-logo">
+							<h3>COOLCOUPONS.IN</h3>
+						</div>
+						<p>
+							<a>www.coolcoupons.in</a> has been a focused local coupon
+							advertising platform. We believe by offering an incentive through
+							a discount coupon you are giving those potential customers a
+							reason to choose your business.
+						</p>
+
+						<!-- footer social -->
+						<ul class="footer-social">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+						</ul>
+						<!-- /footer social -->
+					</div>
+				</div>
+				<!-- /footer widget -->
+
+				<div class="clearfix visible-sm visible-xs"></div>
+
+				<!-- footer widget -->
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="footer">
+						<h3 class="footer-header">Customer Service</h3>
+						<ul class="list-links">
+							<li><a href="#">about us</a></li>
+							<li><a href="#">values &amp; mission</a></li>
+							<li><a href="#">online advertising</a></li>
+							<li><a href="#">coupon book advertising</a></li>
+							<li><a href="#">contact us</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /footer widget -->
+
+				<!-- footer subscribe -->
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="footer">
+						<h3 class="footer-header">Stay Connected</h3>
+						<form>
+							<div class="form-group">
+								<input class="input" placeholder="Enter Email Address" />
+							</div>
+							<button class="primary-btn">Join Newslatter</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="footer-copyright">
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						All rights reserved | This template is made with <i
+							class="fa fa-heart-o" aria-hidden="true"></i> by <a
+							href="https://colorlib.com" target="_blank">coolcoupons.in</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script th:src="@{/myjs/jquery.min.js}"></script>
+	<script th:src="@{/myjs/bootstrap.min.js}"></script>
+	<script th:src="@{/myjs/slick.min.js}"></script>
+	<script th:src="@{/myjs/nouislider.min.js}"></script>
+	<script th:src="@{/myjs/jquery.zoom.min.js}"></script>
+	<script th:src="@{/myjs/main.js}"></script>
+</body>
+</html>

@@ -121,12 +121,12 @@
 							<tr>
 								<th>#</th>
 								<th>Name</th>
-								<!-- <th>Delete</th> -->
+								 <th>Delete</th>
 							</tr>
 							<tr data-th-each="ads : ${adsList}">
 								<td th:text="${ads.adid}"></td>
 								<td th:text="${ads.adtitle}"></td>
-								<!-- <td><a th:href="@{'/deleteSubcategory/'+${subcatg.subcategoryid}}"><i
+							<!-- 	<td><a th:href="@{'/deleteSubcategory/'+${ads.subcategoryid}}"><i
 										class="fa fa-trash"></i></a></td> -->
 							</tr>
 						</table>

@@ -40,7 +40,7 @@ public class AdServiceImpl implements AdService {
 	}
 
 	@Override
-	public List<ads> findByCity(Long subacategoryid) {
+	public List<ads> findBySubCategory(Long subacategoryid) {
 		// TODO Auto-generated method stub
 		return adrepository.findBySubCategoryId(subacategoryid);
 	}

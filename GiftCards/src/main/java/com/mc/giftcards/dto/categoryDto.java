@@ -14,6 +14,13 @@ public class categoryDto {
 	private Long modifiedBy;
 	private String modifiedDate;
 	private boolean active;
+	private Long cityid;
+	public Long getCityid() {
+		return cityid;
+	}
+	public void setCityid(Long cityid) {
+		this.cityid = cityid;
+	}
 	public Long getCategoryid() {
 		return categoryid;
 	}

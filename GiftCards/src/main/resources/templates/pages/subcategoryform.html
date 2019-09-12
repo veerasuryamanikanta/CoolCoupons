@@ -72,13 +72,13 @@
 							<tr>
 								<th>#</th>
 								<th>Name</th>
-								<!-- <th>Delete</th> -->
+								 <th>Delete</th>
 							</tr>
 							<tr data-th-each="subcatg : ${subcategoryList}">
 								<td th:text="${subcatg.subcategoryid}"></td>
 								<td th:text="${subcatg.subcategoryname}"></td>
-								<!-- <td><a th:href="@{'/deleteSubcategory/'+${subcatg.subcategoryid}}"><i
-										class="fa fa-trash"></i></a></td> -->
+								 <td><a th:href="@{'/deleteSubcategory/'+${subcatg.subcategoryid}}"><i
+										class="fa fa-trash"></i></a></td> 
 							</tr>
 						</table>
 					</div>

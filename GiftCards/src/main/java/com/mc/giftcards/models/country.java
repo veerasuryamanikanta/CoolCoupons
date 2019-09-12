@@ -42,7 +42,7 @@ public class country {
 	@Column(name = "photo")
 	private String photo;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_country", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_country", cascade = CascadeType.MERGE)
 	private Set<state> cc_state;
 
 	@Column(name = "createdby")

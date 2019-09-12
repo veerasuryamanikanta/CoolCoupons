@@ -10,7 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -29,7 +31,7 @@ public class category {
 	@Column(name = "categoryid", nullable = false, updatable = false)
 	private Long categoryid;
 
-	@Column(name = "categoryname", nullable = false)
+	@Column(name = "categoryname", nullable = false, unique=true)
 	private String categoryname;
 
 	@Column(name = "imagepath")
@@ -59,12 +61,25 @@ public class category {
 
 	@Column(name = "isactive", columnDefinition = "boolean default false")
 	private boolean isactive;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_category", cascade = CascadeType.MERGE)
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_category", cascade = CascadeType.ALL)
 	private Set<subcategory> cc_subcategory;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_category", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_category", cascade = CascadeType.MERGE)
+	
 	private Set<ads> cc_ads;
+	
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "cityid")
+	private city cc_city;
+
+	public city getCc_city() {
+		return cc_city;
+	}
+
+	public void setCc_city(city cc_city) {
+		this.cc_city = cc_city;
+	}
 
 	public Long getCategoryid() {
 		return categoryid;

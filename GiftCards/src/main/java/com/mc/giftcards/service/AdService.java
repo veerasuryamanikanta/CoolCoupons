@@ -14,6 +14,6 @@ public interface AdService {
 
 	void removeOne(Long id);
 
-	List<ads> findByCity(Long subacategoryid);
+	List<ads> findBySubCategory(Long subacategoryid);
 
 }

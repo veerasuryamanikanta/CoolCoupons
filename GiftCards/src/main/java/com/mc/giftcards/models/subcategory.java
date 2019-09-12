@@ -30,7 +30,7 @@ public class subcategory {
 	@Column(name = "subcategoryid", nullable = false, updatable = false)
 	private Long subcategoryid;
 
-	@Column(name = "subcategoryname", nullable = false)
+	@Column(name = "subcategoryname", nullable = false, unique=true)
 	private String subcategoryname;
 
 	@Column(name = "imagepath")
@@ -60,15 +60,15 @@ public class subcategory {
 	@Column(name = "isactive", columnDefinition = "boolean default false")
 	private boolean isactive;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "cityid")
 	private city cc_city;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "categoryid")
 	private category cc_category;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_subcategory", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_subcategory", cascade = CascadeType.MERGE)
 	private Set<ads> cc_ads;
 
 	public Long getSubcategoryid() {

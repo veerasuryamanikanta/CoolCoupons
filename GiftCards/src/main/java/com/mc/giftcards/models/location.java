@@ -23,10 +23,10 @@ public class location {
 	@Column(name = "locationid", nullable = false, updatable = false)
 	private Long locationid;
 
-	@Column(name = "locationname", nullable = false)
+	@Column(name = "locationname", nullable = false, unique=true)
 	private String locationname;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "cityid")
 	private city cc_city;
 

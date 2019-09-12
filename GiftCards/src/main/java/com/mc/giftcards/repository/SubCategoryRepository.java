@@ -11,4 +11,8 @@ import com.mc.giftcards.models.subcategory;
 public interface SubCategoryRepository extends CrudRepository<subcategory, Long> {
 	@Query(nativeQuery = true, value = "select * from cc_subcategory where cityid =?1")
 	List<subcategory> findByCityId(@Param("cityid") Long cityid);
+
+	@Query(nativeQuery = true, value = "select * from cc_subcategory where categoryid =?")
+	List<subcategory> findByCategoryId(@Param("categoryid") Long categoryid);
+
 }

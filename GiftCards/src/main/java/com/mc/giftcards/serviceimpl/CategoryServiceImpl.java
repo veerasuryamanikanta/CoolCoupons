@@ -39,4 +39,10 @@ public class CategoryServiceImpl implements categoryService {
 		categoryRepository.delete(id);
 	}
 
+	@Override
+	public List<category> findByCity(Long cityid) {
+		// TODO Auto-generated method stub
+		return categoryRepository.findByCityId(cityid);
+	}
+
 }

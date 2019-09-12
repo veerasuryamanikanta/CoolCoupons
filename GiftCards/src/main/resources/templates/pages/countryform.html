@@ -49,13 +49,13 @@
 							<tr>
 								<th>#</th>
 								<th>Name</th>
-								<!-- <th>Delete</th> -->
+								<th>Delete</th>
 							</tr>
 							<tr data-th-each="cntry : ${countryList}">
 								<td th:text="${cntry.countryid}"></td>
 								<td th:text="${cntry.countryname}"></td>
-								<!-- <td><a th:href="@{'/deleteCountry/'+${cntry.countryid}}"><i
-										class="fa fa-trash"></i></a></td> -->
+								<td><a th:href="@{'/deleteCountry/'+${cntry.countryid}}"><i
+										class="fa fa-trash"></i></a></td>
 							</tr>
 						</table>
 					</div>

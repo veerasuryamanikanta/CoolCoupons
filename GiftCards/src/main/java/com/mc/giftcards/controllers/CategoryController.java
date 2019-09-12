@@ -15,20 +15,27 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.mc.giftcards.dto.categoryDto;
 import com.mc.giftcards.models.category;
+import com.mc.giftcards.models.city;
+import com.mc.giftcards.service.CityService;
 import com.mc.giftcards.service.categoryService;
 
 @Controller
 public class CategoryController {
 
 	@Autowired
+	private CityService cityService;
+
+	@Autowired
 	private categoryService categoryService;
 
 	@RequestMapping(value = "/addcategory", method = RequestMethod.GET)
 	public String getCategoryNavigator(Model model) {
+		List<city> cityList = cityService.findAll();
 		List<category> categoryList = categoryService.findAll();
 		categoryDto categorydto = new categoryDto();
 		model.addAttribute("categorydto", categorydto);
 		model.addAttribute("categoryList", categoryList);
+		model.addAttribute("cityList", cityList);
 		return "category";
 
 	}
@@ -40,8 +47,8 @@ public class CategoryController {
 		MultipartFile image_upload = categoryDTO.getImage();
 		category.setImagepath(image_upload.getOriginalFilename());
 		category.setPhoto(image_upload.getBytes().toString());
+		category.setCc_city(cityService.findOne(categoryDTO.getCityid()));
 		categoryService.save(category);
-
 		return "redirect:/addcategory";
 
 	}

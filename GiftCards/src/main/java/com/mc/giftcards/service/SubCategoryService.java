@@ -15,5 +15,7 @@ public interface SubCategoryService {
 	void removeOne(Long id);
 
 	List<subcategory> findByCity(Long cityid);
+	
+	List<subcategory> findByCategory(Long categoryid);
 
 }

@@ -26,7 +26,7 @@ public class city {
 	@Column(name = "cityid", nullable = false, updatable = false)
 	private Long cityid;
 
-	@Column(name = "cityname", nullable = false)
+	@Column(name = "cityname", nullable = false, unique=true)
 	private String cityname;
 
 	@Column(name = "createdby")
@@ -46,18 +46,29 @@ public class city {
 	@Column(name = "isactive", columnDefinition = "boolean default false")
 	private boolean isactive;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "stateid")
 	private state cc_state;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_city", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_city", cascade = CascadeType.MERGE)
 	private Set<location> cc_location;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_city", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_city", cascade = CascadeType.MERGE)
 	private Set<subcategory> cc_subcategory;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_city", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_city", cascade = CascadeType.MERGE)
 	private Set<ads> cc_ads;
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_city", cascade = CascadeType.MERGE)
+	private Set<category> cc_category;
+
+	public Set<category> getCc_category() {
+		return cc_category;
+	}
+
+	public void setCc_category(Set<category> cc_category) {
+		this.cc_category = cc_category;
+	}
 
 	public Long getCityid() {
 		return cityid;

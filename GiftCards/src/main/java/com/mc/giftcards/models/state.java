@@ -26,7 +26,7 @@ public class state {
 	@Column(name = "stateid", nullable = false, updatable = false)
 	private Long stateid;
 
-	@Column(name = "statename", nullable = false)
+	@Column(name = "statename", nullable = false, unique=true)
 	private String statename;
 
 	@Column(name = "createdby")
@@ -46,11 +46,11 @@ public class state {
 	@Column(name = "isactive", columnDefinition = "boolean default false")
 	private boolean isactive;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "countryid")
 	private country cc_country;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_state", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cc_state", cascade = CascadeType.MERGE)
 	private Set<city> cc_city;
 
 	public Long getStateid() {
